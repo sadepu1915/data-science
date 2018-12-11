@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1532915529913.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "252613323",
+    "id" : "5B43EEA2",
+    "lastKnownWriteTime" : 1527680189,
+    "last_content_update" : 1533009746100,
+    "path" : "~/MS/workspace/TAMU-Practice/prob-stat/dice.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "19,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

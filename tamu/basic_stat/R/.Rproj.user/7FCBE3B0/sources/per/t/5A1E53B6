@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537665140072.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "34309059",
+    "id" : "5A1E53B6",
+    "lastKnownWriteTime" : 1482877926,
+    "last_content_update" : 1482877926,
+    "path" : "~/MS/641/R/H06/ozone_ts.R",
+    "project_path" : "H06/ozone_ts.R",
+    "properties" : {
+        "cursorPosition" : "33,9",
+        "scrollLine" : "22"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

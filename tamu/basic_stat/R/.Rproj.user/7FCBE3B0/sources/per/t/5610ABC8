@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537665004930.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "328871558",
+    "id" : "5610ABC8",
+    "lastKnownWriteTime" : 1482877154,
+    "last_content_update" : 1482877154,
+    "path" : "~/MS/641/R/H03/betapdf.R",
+    "project_path" : "H03/betapdf.R",
+    "properties" : {
+        "cursorPosition" : "12,12",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

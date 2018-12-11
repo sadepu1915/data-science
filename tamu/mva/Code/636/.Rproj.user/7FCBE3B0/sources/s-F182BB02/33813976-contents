@@ -1,0 +1,50 @@
+####
+#### Illustration of simulation with multivariate Normal.
+####
+
+setwd("../../Exams/Exams1/")
+sink("output.pdf", type = "output", split = TRUE)
+Sys.time()
+rm(list=ls())
+
+library(MASS)
+
+mu <- c(0, 1)
+Sigma <- matrix(c(1, 0.8, 0.8, 1), nrow = 2)
+
+n <- 50
+p <- 2
+
+## How to simulate a sample of size n from multivariate Normal using 'mvrnorm'.
+X <- mvrnorm(n, mu, Sigma)
+X
+sink()
+
+dim(X)
+X_bar <- colMeans(X)
+S <- var(X)
+
+##
+## Simple simulation: For each of N times, simulate a sample of size n from above distribution, and
+## compute T^2 statistic. We'll test H_0: mu' = [0, 1].
+##
+
+mu_0 <- c(0, 1)
+
+B <- 5000
+T_2_container <- p_val_container <- rep(NA, B)
+for(b in 1:B) {
+  ## Simulate dataset and compute summary statistics.
+  X_b <- mvrnorm(n, mu, Sigma)
+  X_bar_b <- colMeans(X_b)
+  S_b <- var(X_b)
+  
+  ## Compute T^2 statistic.
+  T_2_container[b] <- n * t(X_bar_b - mu_0) %*% solve(S_b) %*% (X_bar_b - mu_0)
+  p_val_container[b] <- 1 - pf(((n - p) / ((n - 1) * p)) * T_2_container[b], p, n - p)
+}
+
+## Simulation-based sampling distribution of p-values under H_0.
+hist(p_val_container)
+sum(p_val_container <= 0.05) / B
+

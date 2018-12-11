@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538839234794.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2425784568",
+    "id" : "46399D9",
+    "lastKnownWriteTime" : 1538839109,
+    "last_content_update" : 1538839109,
+    "path" : "~/MS/636/Code/R/topic_6.r",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "62,68",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

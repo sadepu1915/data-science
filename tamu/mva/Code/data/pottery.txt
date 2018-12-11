@@ -1,0 +1,142 @@
+Al	Fe	Mg	Ca	Na	Site
+14.4	7.00	4.30	0.15	0.51	L
+13.8	7.08	3.43	0.12	0.17	L
+14.6	7.09	3.88	0.13	0.20	L
+11.5	6.37	5.64	0.16	0.14	L
+13.8	7.06	5.34	0.20	0.20	L
+10.9	6.26	3.47	0.17	0.22	L
+10.1	4.26	4.26	0.20	0.18	L
+11.6	5.78	5.91	0.18	0.16	L
+11.1	5.49	4.52	0.29	0.30	L
+13.4	6.92	7.23	0.28	0.20	L
+12.4	6.13	5.69	0.22	0.54	L
+13.1	6.64	5.51	0.31	0.24	L
+12.7	6.69	4.45	0.20	0.22	L
+12.5	6.44	3.94	0.22	0.23	L
+11.8	5.44	3.94	0.30	0.04	C
+11.6	5.39	3.77	0.29	0.06	C
+18.3	1.28	0.67	0.03	0.03	I
+15.8	2.39	0.63	0.01	0.04	I
+18.0	1.50	0.67	0.01	0.06	I
+18.0	1.88	0.68	0.01	0.04	I
+20.8	1.51	0.72	0.07	0.10	I
+17.7	1.12	0.56	0.06	0.06	A
+18.3	1.14	0.67	0.06	0.05	A
+16.7	0.92	0.53	0.01	0.05	A
+14.8	2.74	0.67	0.03	0.05	A
+19.1	1.64	0.60	0.10	0.03	A
+
+
+*******************************
+
+4
+4)
+  A
+  
+
+From the q-q plot except sales other variables looks non normal and from pairwise scotterplot most of them independent each other.
+
+pdf("prob3.pdf")
+advData=read.csv("./R/Advertising.csv")
+attach(advData)
+
+qqnorm(X, main="Normal Plots for X", xlab="normal quantiles", ylab="X")
+qqline(X)
+
+qqnorm(TV, main="Normal Plots for TV", xlab="normal quantiles", ylab="TV")
+qqline(TV)
+
+qqnorm(radio, main="Normal Plots for radio", xlab="normal quantiles", ylab="radio")
+qqline(radio)
+
+qqnorm(newspaper, main="Normal Plots for newspaper", xlab="normal quantiles", ylab="newspapaer")
+qqline(newspaper)
+
+qqnorm(sales, main="Normal Plots for sales", xlab="normal quantiles", ylab="sales")
+qqline(sales)
+
+pairs(advData)
+
+dev.off()
+
+**********************************************
+
+
+3) A&B
+
+   The QQnormal plot shows for both of the variables Age, Prices non normality.the data is not on the straight line and light tailed.
+   Tried with power transform lamba values for .25, .50. 
+   lamba with .50 looks better atleast for normal plot
+   SW test looks good before transform and after transform too
+   Attached plots 
+
+
+pdf("prob2.pdf")
+carsData=read.csv("./R/used_cars.csv")
+qqnorm(carsData$Age, main="Normal Plots for Age", xlab="normal quantiles", ylab="Age")
+qqline(carsData$Age)
+shapiro.test(carsData$Age)
+> shapiro.test(carsData$Age)
+
+	Shapiro-Wilk normality test
+
+data:  carsData$Age
+W = 0.94805, p-value = 0.6454
+
+trans.25<-carsData$Age^.25
+qqnorm(trans.25, main="Normal Plots for Age with transform^.25", xlab="normal quantiles", ylab="Age");qqline(trans.25)
+
+trans.50<-carsData$Age^.50
+qqnorm(trans.50, main="Normal Plots for Age with transform^.50", xlab="normal quantiles", ylab="Age");qqline(trans.50)
+
+shapiro.test(trans.50)
+> shapiro.test(trans.50)
+
+	Shapiro-Wilk normality test
+
+data:  trans.50
+W = 0.97838, p-value = 0.9559
+
+qqnorm(carsData$Price, main="Normal Plots for price", xlab="normal quantiles", ylab="price")
+qqline(carsData$Price)
+shapiro.test(carsData$Price)
+
+	Shapiro-Wilk normality test
+
+data:  carsData$Price
+W = 0.91801, p-value = 0.3406
+
+ptrans.25<-carsData$Price^.25
+qqnorm(ptrans.25, main="Normal Plots for price with transform^.25", xlab="normal quantiles", ylab="price");qqline(ptrans.25)
+
+ptrans.50<-carsData$Price^.50
+qqnorm(ptrans.50, main="Normal Plots for price with transform^.50", xlab="normal quantiles", ylab="price");qqline(ptrans.50)
+
+shapiro.test(ptrans.50)
+> shapiro.test(ptrans.50)
+
+	Shapiro-Wilk normality test
+
+data:  ptrans.50
+W = 0.91324, p-value = 0.304
+
+3C)
+    # From the boxCox plot lambda value.80 seems to be good value for combined Age&Price
+
+boxCox(lm(Age~Price), data=carsData, lambda =  seq(from = -2, to = 2, length = 100))
+ptranscombined<-cbind(Age, Price)^.80
+qqnorm(ptranscombined, main="Normal Plots for Age&Price with transform^.80", xlab="normal quantiles", ylab="carsData")
+qqline(ptranscombined)
+shapiro.test(ptranscombined)
+
+	Shapiro-Wilk normality test
+
+data:  ptranscombined
+W = 0.94114, p-value = 0.252
+
+dev.off()
+
+
+
+
+

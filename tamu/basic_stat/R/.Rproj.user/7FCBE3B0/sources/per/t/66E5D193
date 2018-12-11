@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537665029524.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "131956046",
+    "id" : "66E5D193",
+    "lastKnownWriteTime" : 1482877161,
+    "last_content_update" : 1482877161,
+    "path" : "~/MS/641/R/H03/symmpdf.R",
+    "project_path" : "H03/symmpdf.R",
+    "properties" : {
+        "cursorPosition" : "11,12",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

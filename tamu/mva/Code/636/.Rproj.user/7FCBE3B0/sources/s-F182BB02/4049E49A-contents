@@ -1,0 +1,120 @@
+######################
+#########HW2########
+
+pdf("prob2.pdf")
+attach(carsData)
+carsData=read.csv("./R/used_cars.csv")
+qqnorm(carsData$Age, main="Normal Plots for Age", xlab="normal quantiles", ylab="Age")
+qqline(carsData$Age)
+shapiro.test(carsData$Age)
+
+trans.25<-carsData$Age^.25
+qqnorm(trans.25, main="Normal Plots for Age with transform^.25", xlab="normal quantiles", ylab="Age");qqline(trans.25)
+
+trans.50<-carsData$Age^.50
+qqnorm(trans.50, main="Normal Plots for Age with transform^.50", xlab="normal quantiles", ylab="Age");qqline(trans.50)
+
+shapiro.test(trans.50)
+
+qqnorm(carsData$Price, main="Normal Plots for price", xlab="normal quantiles", ylab="price")
+qqline(carsData$Price)
+shapiro.test(carsData$Price)
+
+ptrans.25<-carsData$Price^.25
+qqnorm(ptrans.25, main="Normal Plots for price with transform^.25", xlab="normal quantiles", ylab="price");qqline(ptrans.25)
+
+ptrans.50<-carsData$Price^.50
+qqnorm(ptrans.50, main="Normal Plots for price with transform^.50", xlab="normal quantiles", ylab="price");qqline(ptrans.50)
+
+shapiro.test(ptrans.50)
+
+boxCox(lm(Age~Price), data=carsData, lambda =  seq(from = -2, to = 2, length = 100))
+ptranscombined<-cbind(Age, Price)^.80
+qqnorm(ptranscombined, main="Normal Plots for Age&Price with transform^.80", xlab="normal quantiles", ylab="carsData")
+qqline(ptranscombined)
+
+dev.off()
+
+#3A
+
+pdf("prob3.pdf")
+advData=read.csv("./R/Advertising.csv")
+attach(advData)
+
+qqnorm(X, main="Normal Plots for X", xlab="normal quantiles", ylab="X")
+qqline(X)
+
+qqnorm(TV, main="Normal Plots for TV", xlab="normal quantiles", ylab="TV")
+qqline(TV)
+
+qqnorm(radio, main="Normal Plots for radio", xlab="normal quantiles", ylab="radio")
+qqline(radio)
+
+qqnorm(newspaper, main="Normal Plots for newspaper", xlab="normal quantiles", ylab="newspapaer")
+qqline(newspaper)
+
+qqnorm(sales, main="Normal Plots for sales", xlab="normal quantiles", ylab="sales")
+qqline(sales)
+
+pairs(advData)
+
+dev.off()
+
+#colnames(data3) <- c("Cy", "X1", "X2", "X3", "F2")
+
+#### HW3
+##### 1#####
+sink("../../HW/HW03/636Hw03.pdf", split = TRUE, type="message")
+data3<-read.csv("../../HW/HW03/Auto_hw.csv")
+attach(data3)
+summary(manova(as.matrix(data3[, 2:4]) ~ cylinders + origin + cylinders * origin),test="Wilks")
+
+
+###################
+##2nd#############
+library(MASS) 
+n <- 30
+p <- 5
+mu <- rep(0, p) 
+rho <- 0.6
+Rho  <- matrix(rho, nrow  =  p, ncol =  p); 
+diag(Rho) <- 1   
+sg <- 1
+Sigma <- sg * Rho
+
+N <- 1000
+CI_t <- CI_b <- CI_T2 <- matrix(NA, nrow =  p,  ncol  =  2) 
+cover_t <- cover_b <- cover_t2 <- matrix(NA, nrow = N, ncol = p) 
+F_crit <- (n - 1) * p * qf(0.95, p, n - p) / (n - p)
+
+for(k in 1:N) {
+  ## Simulate sample  and  compute  summary statistics. 
+  X <- mvrnorm(n, mu, Sigma)
+  X_bar <- colMeans(X) 
+  S <- var(X)
+  
+  ## Usual t-based 95 CIs for mean components. And record whether the intervals ’cover’ 
+  ## (include) the true population mean value.
+  for(i in 1:p) {
+    CI_t[i, ] <- X_bar[i] + c(-1, 1) * qt(0.975, n - 1) * sqrt(S[i, i] / n) 
+    cover_t[k, i] <- mu[i] >= CI_t[i, 1] & mu[i] <= CI_t[i, 2]
+  }
+  
+  ## Now do Bonferroni simultaneous 95 CIs.
+  for(i in 1:p) {
+    CI_b[i, ] <- X_bar[i] + c(-1, 1) * qt(1 - 0.025 / p, n - 1) * sqrt(S[i, i] / n) 
+    cover_b[k, i] <- mu[i] >= CI_b[i, 1] & mu[i] <= CI_b[i, 2]
+  }
+  
+  #ci_T2 <- x_bar[k] + c(-1, 1) * sqrt(F_crit * S[k, k] / n)
+  
+  for(i in 1:p) {
+    CI_T2[i, ] <- X_bar[i] + c(-1, 1) * sqrt(F_crit * S[i, i] / n) 
+    cover_t2[k, i] <- mu[i] >= CI_T2[i, 1] & mu[i] <= CI_T2[i, 2]
+  }
+}
+
+total_coverage<-matrix(c(colMeans(cover_t),colMeans(cover_b),colMeans(cover_t2)), nrow=3, byrow = TRUE)
+rownames(total_coverage)<-c("one-at-a-atime", "Bonferroni", "T2 simul")
+total_coverage
+sink()

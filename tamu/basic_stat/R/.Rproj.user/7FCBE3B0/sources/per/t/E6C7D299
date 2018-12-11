@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1534029136965.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2632661923",
+    "id" : "E6C7D299",
+    "lastKnownWriteTime" : 1482877119,
+    "last_content_update" : 1482877119,
+    "path" : "~/MS/641/R/H03/gammapdf(2).R",
+    "project_path" : "H03/gammapdf(2).R",
+    "properties" : {
+        "cursorPosition" : "12,13",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,12 @@
+[0m[0KMicrosoft Windows [Version 10.0.17134.285][0K[?25l
+(c) 2018 Microsoft Corporation. All rights reserved.[0K
+[0K
+C:\Users\Madhavi\Documents\MS\641\R>[0K[?25hf[0Ki[0K[?25lC:\Users\Madhavi\Documents\MS\641\R>f[0K[?25h[?25lC:\Users\Madhavi\Documents\MS\641\R>[0K[?25hg[0Kr[0Ke[0Kp[0K[42G[?25lC:\Users\Madhavi\Documents\MS\641\R>grep -[0K[?25hn[0Kr[0Ki[0K[47G[?25lC:\Users\Madhavi\Documents\MS\641\R>grep -nri '[0K[?25hs[0Kc[0Ka[0Kn[0K'[0K[54G[?25lC:\Users\Madhavi\Documents\MS\641\R>grep -nri 'scan' *[0K[?25h[?25l
+'grep' is not recognized as an internal or external command,[0K
+operable program or batch file.[0K
+[0K
+C:\Users\Madhavi\Documents\MS\641\R>[0K[?25hgrep -nri 'scan' *[0K[?25lC:\Users\Madhavi\Documents\MS\641\R>grep -nri 'scan'[0K[54G[?25h[53G[?25lC:\Users\Madhavi\Documents\MS\641\R>grep -nri 'scan[0K[?25h[?25l
+'grep' is not recognized as an internal or external command,[0K
+operable program or batch file.[0K
+[0K
+C:\Users\Madhavi\Documents\MS\641\R>[0K[?25h

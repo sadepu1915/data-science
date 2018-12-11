@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1534031791674.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1954202926",
+    "id" : "4CC14D3",
+    "lastKnownWriteTime" : 1482877170,
+    "last_content_update" : 1482877170,
+    "path" : "~/MS/641/R/H03/normalmix_4pdfs.R",
+    "project_path" : "H03/normalmix_4pdfs.R",
+    "properties" : {
+        "cursorPosition" : "14,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

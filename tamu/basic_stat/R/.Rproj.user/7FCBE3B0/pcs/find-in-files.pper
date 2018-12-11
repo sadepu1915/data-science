@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "~/MS/641/R",
+        "query" : "sink",
+        "regex" : false
+    }
+}
