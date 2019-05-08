@@ -1,0 +1,196 @@
+---
+title: "Cleaning Bikes"
+output: html_notebook
+---
+
+```{r}
+rm(list=ls())
+options(digits=10) #this is needed because the lat/lon will get truncated otherwise.
+```
+
+```{r}
+# remove 4164, 4217
+# iterate all stations to check validaity 
+# no of rides per station 
+
+bikes<- readxl::read_xlsx("./data/LABikeData.xlsx")
+dim(bikes)
+colSums(is.na(bikes))
+
+stations<- read.csv("./data/stations_cleaned.csv")
+
+```
+
+NA's for columns ..need to fix 
+end_station (43198)
+start_lat (1354),
+start_lon (1354),
+end_lat (9110),
+end_lon (9110),
+plan_duration (384)
+
+
+Fix the missing end stations:
+```{r}
+missing_end_stn<- bikes[which(is.na(bikes$end_station)), ]
+missing_end_stn
+
+#43198 rows
+```
+
+
+Looping through the bikes data, I'll look at all the missing end station latitudes.  If it matches the latitude in the cleaned stations table, I'll fill in the corresponding station number.  I skip the NA values for now. 
+```{r}
+for(i in 1:length(bikes$end_station)){
+  if(is.na(bikes$end_station[i])){
+      latitude<- bikes$end_lat[i]
+      index<- match(latitude, stations$latitude)
+      if(index!=1 | is.na(index) ){
+        if(is.na(index)){
+          longitude<- bikes$end_lon[i]
+          index2<- match(longitude, stations$longitude)
+          bikes$end_station[i]<- stations[index2, "Station_ID"]
+        }
+        else{
+          bikes$end_station[i]<- stations[index, "Station_ID"]
+        }
+      }
+  }
+}
+```
+
+Look at the missing data again to see what we have.  
+```{r}
+bikes[which(is.na(bikes$end_station)), ]
+```
+
+Fill in the missing stations that have missing end lat/lon as virtual stations.  
+```{r}
+for(i in 1:length(bikes$end_station)){
+  if(is.na(bikes$end_station[i])){
+          bikes$end_station[i]<- 3000
+  }
+}
+```
+
+Start latitude & longitude are NA ..they are mapped to virtual station 3000
+```{r}
+unique(bikes[which(is.na(bikes$start_lat)), ]$start_station)
+unique(bikes[which(is.na(bikes$start_lon)), ]$start_station)
+```
+
+Now fix for End latitude & longitude
+revisit both has NA stations -- do we need to set 3000 
+```{r}
+
+unique(bikes[which(is.na(bikes$end_lat)), ]$end_station)
+unique(bikes[which(is.na(bikes$end_lon)), ]$end_station)
+
+```
+
+After looking at the map, location 4118 and 4108 are the same. Code the 4118 as 4008. 
+```{r}
+bikes[which(bikes$end_station==4118), "end_station"]<- 4108
+```
+
+passholders and plan duration.  
+There are 269 coded as 150.  that are monthly passes.  going to recode those as 30.  
+
+```{r}
+table(bikes$plan_duration, bikes$passholder_type)
+
+for(i in 1:length(bikes$start_station)){
+  if(bikes$plan_duration[i] == 150 & !is.na(bikes$plan_duration[i])  ){
+    bikes$plan_duration[i]<- 30
+  }
+}
+
+```
+
+There are 384 coded as na  
+it looks like all these are monthly passholders. adding 30 in for the duration on these too.
+
+```{r}
+bikes[which(is.na(bikes$plan_duration)), ]  
+bikes[is.na(bikes$plan_duration), ]$passholder_type
+
+for(i in 1:length(bikes$start_station)){
+  if(bikes$passholder_type[i] == "Monthly Pass" & is.na(bikes$plan_duration[i])  ){
+    bikes$plan_duration[i]<- 30
+  }
+}
+
+#all the plan durations are fixed now
+summary(as.factor(bikes$plan_duration))
+
+```
+
+
+So, lots of walkups buy a full day pass and some even buy a monthly pass.
+1044 monthly passes coded as 365 day passes.  not sure what those are.  
+nothing really unique about these all different times and locations.
+```{r}
+
+table(bikes$plan_duration,bikes$passholder_type)
+bikes[which(bikes$plan_duration==365 & bikes$passholder_type=="Monthly Pass"), ]
+
+```
+
+looks like we've licked the NA values write another data file for the bikes. 
+
+```{r}
+summary(bikes)
+```
+
+now we need to fix outliers in the data.  
+Starting to look for outliers.  We'll do the obvious outliers first, the locations with 0 lat/lon, or positive lon
+```{r}
+temp1<- bikes[which(bikes$start_lon>0),]
+temp1
+stations[which(stations$Station_ID=="3039"), ]
+#this one is coded as stn 3039 but we know that one was only active for an event.  go by the start lat/lon
+match(temp1$start_lon, stations$longitude)
+match(temp1$start_lat, stations$latitude)
+
+#they don't match anything in our station data. 
+# the map indicates channing street and the LA warehouse stations 4108 and 4118
+# code this one as 4108 1 la warehouse
+bikes[which(bikes$start_lon>0),c("start_station", "start_lon")]<- c(4108,  -118.238258)
+
+#Need to just combine 1 LA WHSE and Channing ST. 
+bikes[which(bikes$end_station=="4118"), "end_station" ] <- 4108 
+bikes[which(bikes$start_station=="4108"),]
+```
+Now the zeros
+```{r}
+bikes_temp <- bikes #save this off in case i screw something up.
+# start location
+temp<- bikes[which(bikes$start_lon==0 | bikes$start_lat==0),]
+index<- match( temp$start_station, stations$Station_ID) #67
+temp
+index # these are all the la warehouse
+bikes[which(bikes$start_lon==0|bikes$start_lat==0), "start_lon"]<- stations$longitude[67]
+bikes[which(bikes$start_lon==0|bikes$start_lat==0), "start_lat"]<- stations$latitude[67]                                                                     
+#end location
+temp<- bikes[which(bikes$end_lon==0 | bikes$end_lat==0),]
+match( temp$end_station, stations$Station_ID)# all 67 again
+bikes[which(bikes$end_lon==0 | bikes$end_lat==0),"end_lon"]<- stations$longitude[67]
+bikes[which(bikes$end_lon==0 | bikes$end_lat==0),"end_lat"]<- stations$latitude[67]
+```
+
+Now that the locations appear to be fixed, let's look at the summary again
+```{r}
+summary(bikes)
+```
+
+Everything looks ok.  We do have some missing start and end times.  But, I'll leave them for now.  Save the file to a partially cleaned data file.
+```{r}
+write.csv(bikes, "C:\\R\\DataComp\\bikes_partial_clean.csv")
+```
+
+
+
+
+
+
+

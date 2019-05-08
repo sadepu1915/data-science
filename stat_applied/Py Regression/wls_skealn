@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 12 22:13:19 2019
+
+@author: sadepu
+"""
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+# classes provided for the course
+from AdvancedAnalytics import ReplaceImputeEncode
+from AdvancedAnalytics import linreg
+print("***** Stat 608 - Chapter 4 Example ***")
+df = pd.read_csv("../SheatherData/cleaningwtd.txt", sep="\t")
+print(df.iloc[0:10])
+
+"""
+rie = ReplaceImputeEncode(data_map=attribute_map, display=True)
+# Now request replace-impute-encode for your dataframe
+encoded_df = rie.fit_transform(df)
+print(encoded_df.iloc[0:10])
+"""
+
+y = np.asarray(encoded_df['Rooms'])
+# Drop the target from the encoded dataframe
+X = np.asarray(encoded_df['Crews'])
+X = np.asarray(encoded_df.drop(['Rooms', 'StdDev'], axis=1))
+wtd = encoded_df['StdDev']
+wtd = 1.0/(wtd*wtd)
+lr = LinearRegression()
+lr.fit(X, y, sample_weight=wtd)
+
+print("\nLinear Regression with\n\t" + " one-hot encoding and no interval scaling.")
+print("\nLinear Regression Model using Entire Dataset")
+col = []
+for i in range(len(rie.col)):
+if rie.col[i] == 'Rooms':
+continue
+if rie.col[i] == 'StdDev':
+continue
+col.append(rie.col[i])
+linreg.display_coef(lr, X, y, col)
+linreg.display_metrics(lr, X, y)

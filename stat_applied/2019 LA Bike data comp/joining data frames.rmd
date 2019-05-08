@@ -1,0 +1,334 @@
+---
+title: "Joining data frames"
+output: html_notebook
+---
+
+
+```{r}
+rm(list=ls())
+```
+
+
+```{r}
+stations<- read.csv("C:\\R\\DataComp\\stations_cleaned.csv")
+bikes<- read.csv("C:\\R\\DataComp\\bikes_partial_clean.csv")
+```
+
+```{r}
+sum(is.na(bikes$start_time))
+```
+
+
+```{r}
+start_stations<- stations
+end_stations<- stations
+
+colnames(start_stations)<- c("start_station", "start_station_Name",
+                             "start_Go_live_date",
+                             "start_Region", "start_Status", "start_latitude",
+                             "start_longitude")
+colnames(end_stations)<- c("end_station", "end_station_Name", "end_Go_live_date",
+                           "end_Region", "end_Status", "end_latitude",
+                           "end_longitude")
+colnames(bikes)
+
+```
+
+Joining the stations data table to the bikes data table.  Coding the start and end locations.
+```{r}
+df_1<- merge(bikes, start_stations, all.x=TRUE, sort=FALSE)
+bikes_full<- merge(df_1, end_stations, all.x=TRUE, sort=FALSE)
+
+```
+
+```{r}
+summary(bikes_full)
+```
+
+
+
+Let's explore the starting lat and the one that came from the station table (most frequent location).  I'll just use a cartesian distance because we don't need too much accuracy.
+```{r}
+options(digits=10)
+start_lat_diff<- (bikes_full$start_lat - bikes_full$start_latitude)*1.15077945*60*5280
+start_lon_diff<- (bikes_full$start_lon - bikes_full$start_longitude)*1.15077945*60*5280
+end_lat_diff<- (bikes_full$end_lat - bikes_full$end_latitude)*1.15077945*60*5280
+end_lon_diff<- (bikes_full$end_lon - bikes_full$end_longitude)*1.15077945*60*5280
+plot(start_lon_diff, start_lat_diff, main="Difference in Start Position Most Frequent and Coded", xlab="Longitude Difference (ft)",ylab= "Latitude Diff (ft)",ylim=c(-500,500), xlim=c(-400,400))
+grid()
+
+plot(end_lon_diff, end_lat_diff, main="Difference in End Position Most Frequent and Coded", xlab="Longitude Difference (ft)",ylab= "Latitude Diff (ft)",  ylim=c(-500,500), xlim=c(-400,400))
+grid()
+
+```
+
+```{r}
+bikes_full[which(start_lat_diff< -300),] #4104 obs
+bikes_full[which(end_lat_diff< -300),] #3787 obs
+stations[which(stations$Station_ID=="3063"), ]
+#looks like that's station 3063 at Pershing Square.  That's the station 9999 that I added for 6th and olive.
+stations[which(stations$Station_ID=="9999"), ]
+#they mustve moved where the station 3063 was. I'm going to code these as olive and 6th since it's pretty far away from olive and 5th.  
+temp1<- stations[which(stations$Station_ID=="9999"), c('latitude', 'longitude', "Go_live_date", 'Status',
+                                                       'Station_Name')]
+
+  
+  bikes_full[which(start_lat_diff< -300), "start_station"]<- "9999"
+  bikes_full[which(start_lat_diff< -300), "start_latitude"]<- temp1[1]
+  bikes_full[which(start_lat_diff< -300), "start_longitude"]<- temp1[2]
+  bikes_full[which(start_lat_diff< -300), "start_Go_live_date"]<- temp1[3]
+  bikes_full[which(start_lat_diff< -300), "start_Status"]<- temp1[4]
+  bikes_full[which(start_lat_diff< -300), "start_station_Name"]<- temp1[5]
+  
+  bikes_full[which(end_lat_diff< -300), "end_station"]<- "9999"
+  bikes_full[which(end_lat_diff< -300), "end_latitude"]<- temp1[1]
+  bikes_full[which(end_lat_diff< -300), "end_longitude"]<- temp1[2]
+  bikes_full[which(end_lat_diff< -300), "end_Go_live_date"]<- temp1[3]
+  bikes_full[which(end_lat_diff< -300), "end_Status"]<- temp1[4]
+  bikes_full[which(end_lat_diff< -300), "end_station_Name"]<- temp1[5]
+
+bikes_full[which(start_lon_diff> 200),] #87 obs
+bikes_full[which(end_lon_diff> 200),] #80 obs
+# 3 stations Grand/LATTC, 7th & Westminster, Pasadena Central Library
+# 4227, 4213, 4148
+bikes_full[which(start_lon_diff> 200 & bikes_full$start_station=="4227"),] #37 here
+# we'll code these as the starting locations in the station table and keep the original long/lat
+temp1<- bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4227"),c("start_lat", "start_lon")]
+
+
+bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4227"),"start_latitude"]<- temp1$start_lat[1]
+bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4227"),"start_longitude"]<- temp1$start_lon[1]
+bikes_full[which(end_lon_diff > 200 & bikes_full$end_station=="4227"),"end_latitude"]<- temp1$start_lat[1]
+bikes_full[which(end_lon_diff > 200 & bikes_full$end_station=="4227"),"end_longitude"]<- temp1$start_lon[1]
+
+
+bikes_full[which(start_lon_diff> 200),] #50 left
+bikes_full[which(start_lon_diff> 200 & bikes_full$start_station=="4213"),] #48 here
+bikes_full[which(end_lon_diff> 200 & bikes_full$end_station=="4213"),] #40 here
+#looks like they moved 7th and westminster down the street.  
+# we'll keep the lats/lons
+temp1<- bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4213"),c("start_lat", "start_lon")]
+bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4213"),"start_latitude"]<- temp1$start_lat[1]
+bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4213"),"start_longitude"]<- temp1$start_lon[1]
+bikes_full[which(end_lon_diff > 200 & bikes_full$end_station=="4213"),"end_latitude"]<- temp1$start_lat[1]
+bikes_full[which(end_lon_diff > 200 & bikes_full$end_station=="4213"),"end_longitude"]<- temp1$start_lon[1]
+
+bikes_full[which(start_lon_diff> 200),] #2 left
+bikes_full[which(end_lon_diff> 200),] #2 left
+#pasadena library looks like they put the station in a different start and these 2 are before the live start date.
+temp1<- bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4148"),c("start_lat", "start_lon")]
+bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4148"),"start_latitude"]<- temp1$start_lat[1]
+bikes_full[which(start_lon_diff > 200 & bikes_full$start_station=="4148"),"start_longitude"]<- temp1$start_lon[1]
+bikes_full[which(end_lon_diff > 200 & bikes_full$end_station=="4148"),"end_latitude"]<- temp1$start_lat[1]
+bikes_full[which(end_lon_diff > 200 & bikes_full$end_station=="4148"),"end_longitude"]<- temp1$start_lon[1]
+
+bikes_full[which(start_lon_diff> 100),] #1364
+bikes_full[which(end_lon_diff> 100),] #1041
+#station 3046 2nd & Hill, looks like they had it around the corner for awhile.  
+temp1<- bikes_full[which(start_lon_diff > 100 & bikes_full$start_station=="3046"),c("start_lat", "start_lon")]
+bikes_full[which(start_lon_diff > 100 & bikes_full$start_station=="3046"),"start_latitude"]<- temp1$start_lat[1]
+bikes_full[which(start_lon_diff > 100 & bikes_full$start_station=="3046"),"start_longitude"]<- temp1$start_lon[1]
+bikes_full[which(end_lon_diff > 100 & bikes_full$end_station=="3046"),"end_latitude"]<- temp1$start_lat[1]
+bikes_full[which(end_lon_diff > 100 & bikes_full$end_station=="3046"),"end_longitude"]<- temp1$start_lon[1]
+
+
+bikes_full[which(start_lon_diff< -100),] #3157
+bikes_full[which(end_lon_diff< -100),] #4039
+#looks like stn 3005 7th and flower got moved around the corner.
+temp1<- bikes_full[which(start_lon_diff < -100 & bikes_full$start_station=="3005"),c("start_lat", "start_lon")]
+bikes_full[which(start_lon_diff < -100 & bikes_full$start_station=="3005"),"start_latitude"]<- temp1$start_lat[1]
+bikes_full[which(start_lon_diff < -100 & bikes_full$start_station=="3005"),"start_longitude"]<- temp1$start_lon[1]
+bikes_full[which(end_lon_diff < -100 & bikes_full$end_station=="3005"),"end_latitude"]<- temp1$start_lat[1]
+bikes_full[which(end_lon_diff < -100 & bikes_full$end_station=="3005"),"end_longitude"]<- temp1$start_lon[1]
+# also theres station 4146 city hall west in pasadena 3 observations.  looks like it got moved up the st.  these trips were before the start date. 
+temp1<- bikes_full[which(start_lon_diff < -100 & bikes_full$start_station=="4146"),c("start_lat", "start_lon")]
+bikes_full[which(start_lon_diff < -100 & bikes_full$start_station=="4146"),"start_latitude"]<- temp1$start_lat[1]
+bikes_full[which(start_lon_diff < -100 & bikes_full$start_station=="4146"),"start_longitude"]<- temp1$start_lon[1]
+bikes_full[which(end_lon_diff < -100 & bikes_full$end_station=="4146"),"end_latitude"]<- temp1$start_lat[1]
+bikes_full[which(end_lon_diff < -100 & bikes_full$end_station=="4146"),"end_longitude"]<- temp1$start_lon[1]
+
+```
+
+```{r}
+options(digits=10)
+start_lat_diff<- (bikes_full$start_lat - bikes_full$start_latitude)*1.15077945*60*5280
+start_lon_diff<- (bikes_full$start_lon - bikes_full$start_longitude)*1.15077945*60*5280
+end_lat_diff<- (bikes_full$end_lat - bikes_full$end_latitude)*1.15077945*60*5280
+end_lon_diff<- (bikes_full$end_lon - bikes_full$end_longitude)*1.15077945*60*5280
+plot(start_lon_diff, start_lat_diff, main="Difference in Start Position Most Frequent and Coded", xlab="Longitude Difference (ft)",ylab= "Latitude Diff (ft)",ylim=c(-500,500), xlim=c(-400,400))
+grid()
+
+plot(end_lon_diff, end_lat_diff, main="Difference in End Position Most Frequent and Coded", xlab="Longitude Difference (ft)",ylab= "Latitude Diff (ft)",  ylim=c(-500,500), xlim=c(-400,400))
+grid()
+
+```
+
+
+```{r}
+bikes_full[which(end_lat_diff> 20),] #28
+#This is the LA Warehouse location.  80ft off.  we'll leave these be.  there's no indication where this station really is.  it's in a sketchy part of town and the lat/lon indicated it's behind a fence with concertina wire. 
+```
+
+
+
+
+
+```{r}
+summary(bikes_full)
+```
+
+Station 9999 is the same station as 5th and olive, but they moved it across the pershing square thing to 6th and olive.  
+
+Also, we'll need to look at the live date and the trip date.  There are some trips before the live date that are probably simulatons or test runs.  This has an effect on some of the locations.  
+
+
+Rearrange the bikes full data
+```{r}
+colnames(bikes_full)
+```
+```{r}
+bikes_full_ordered<- bikes_full[ , c("trip_id", "bike_id", "trip_route_category",
+                                    "start_station", "end_station",
+                                    "start_station_Name", "end_station_Name",
+                                    "start_lat", "start_lon", 
+                                    "end_lat", "end_lon", 
+                                    "start_Region", "end_Region", 
+                                    "start_Status", "end_Status",
+                                    "start_time", "end_time", 
+                                    "plan_duration", "passholder_type",
+                                    "start_Go_live_date", "end_Go_live_date", 
+                                    "start_latitude", "start_longitude",
+                                    "end_latitude", "end_longitude")]
+
+head(bikes_full_ordered)
+```
+
+
+Now that we've got the stations taken care of, we can start looking at the times.
+```{r}
+bikes<- bikes_full_ordered
+bikes$start_time<- as.POSIXct.POSIXlt(strptime(bikes$start_time, "%d/%m/%Y %I:%M:%S %p", tz='PST8PDT'))
+bikes$end_time<- as.POSIXct.POSIXlt(strptime(bikes$end_time, "%d/%m/%Y %I:%M:%S %p", tz='PST8PDT'))
+
+# Bikes Data
+bikes$start_Go_live_date<- as.POSIXct.POSIXlt(strptime(bikes$start_Go_live_date, format="%m/%d/%Y", tz='PST8PDT'))
+bikes$end_Go_live_date<- as.POSIXct.POSIXlt(strptime(bikes$end_Go_live_date, format="%m/%d/%Y", tz='PST8PDT'))
+```
+
+
+First, We'll take a look at the duration.  The difftime gives minutes
+```{r}
+#there's some nas in the start and end time. we'll have to ignore them for now.
+
+duration<- bikes$end_time - bikes$start_time
+duration<- as.numeric(duration) #minutes
+summary(duration)
+
+length(duration[duration<=0]) #there's 7 values where the difference is <=0
+duration[duration<=0]
+bikes[which(duration<=0),]
+bikes[which(duration<=0),c("start_time", "end_time", "bike_id")]
+#all of these happened on 11/5 around 1AM or 2AM.  This was the Daylight Saving time change! we need to add an hour to the end time.  #we'll have to look at the other time changes as well.  Need to add 2 hours because R accounts for the time switch.
+temp1<- as.POSIXct(bikes[which(duration<=0),"end_time"] + 3600*2, tz='PST8PDT')
+bikes[which(duration<=0),"end_time"]<- temp1
+
+duration<- difftime(time1=bikes$end_time, time2=bikes$start_time, units = "mins")
+duration<- as.numeric(duration) #minutes
+summary(duration)
+#ok.  those are fixed. 
+#now to look at the other time changes.  
+
+#3/12/17 2AM->3AM
+test_time1<- strptime("12/03/2017 01:00:00 AM", format="%d/%m/%Y %I:%M:%S %p", tz='PST8PDT')
+test_time2<- strptime("12/03/2017 03:00:00 AM", format="%d/%m/%Y %I:%M:%S %p", tz='PST8PDT')
+bikes[which(bikes$start_time>test_time1 & bikes$start_time<test_time2),c("start_time", "end_time")]
+duration[which(bikes$start_time>test_time1 & bikes$start_time<test_time2)]
+#Looks like R takes care of these so long as they're coded as correct times.  No need to worry about it.
+
+#Now let's look at long durations duration > 1440 minutes (1 day)
+bikes[which(duration>1440),] # There's 2123 rows here.  that's a lot!
+bikes[which(duration>1440 & bikes$end_station=="3000"),] #1322 are where the ending station is 3000.
+# I'm going to assume that these bikes weren't returned.  
+summary(duration[which(duration>1440&bikes$end_station=="3000")]) # we need to tag these as such somehow.
+bikes[which(duration>1440 & bikes$end_station!="3000"),] #801 left
+summary(duration[which(duration>1440&bikes$end_station!="3000")]) #anywhere from a day to 6 days
+
+# I'll change the end times to 1401 minutes after the start time.  That's 1 minute greater than a day.  #need to note that in the summary
+temp1<- as.POSIXct(bikes[which(duration>1440),"start_time"] + 60*60*24+60, tz='PST8PDT')
+bikes[which(duration>1440),"end_time"]<- temp1
+duration<- difftime(time1=bikes$end_time, time2=bikes$start_time, units = "mins")
+duration<- as.numeric(duration) #minutes
+summary(duration)
+hist(duration)
+hist(duration, xlim=c(0,30), breaks=seq(from=0, to=1445, by=1))
+hist(duration, xlim=c(0,60), breaks=seq(from=0, to=1445, by=1))
+
+```
+
+It looks like most of the trips are pretty short.  Let's make a new attribute that is the number of pay periods (30 minute intervals).  I'll use the ceiling function to round up if the duration goes up by a minute.
+```{r}
+pay_periods<- ceiling(duration/30)
+hist(pay_periods) #looks the same.  Let's look at a table
+pay_period_counts<- summary(as.factor(pay_periods))
+duration_counts<- summary(as.factor(duration))
+
+
+hist(pay_periods, xlim=c(0,4), breaks=seq(from=0, to=50, by=1))
+hist(pay_periods, xlim=c(0,15), breaks=seq(from=0, to=50, by=1))
+
+#Percent of pay periods
+cumsum(pay_period_counts)/length(duration)
+pay_period_counts/length(duration)
+#Percent of duration
+cumsum(duration_counts)/length(duration)
+
+plot(ecdf(duration), ylim=c(0,1))
+plot(ecdf(duration), xlim=c(0,60), ylim=c(0,1))
+
+plot(ecdf(pay_periods), xlim=c(0,10), ylim=c(0,1))
+
+summary(as.factor(pay_periods))
+
+
+#81.1 percent of the data is < 30 minutes
+# 9.7 percent of the data is >30 minutes and < 60 minutes
+# we can make a new attribute called short trips for trips < 30 minutes.  This will help when determining the cost.
+```
+
+
+
+Let's look at the trips where the trip date was before the go live date
+```{r}
+a<-bikes[which(bikes$start_time < bikes$start_Go_live_date), ] #There's 94 in the start #all in pasadena and port of LA
+b<- bikes[which(bikes$end_time < bikes$end_Go_live_date), ] #93 here.  
+bikes[which(bikes$trip_id==setdiff(a$trip_id, b$trip_id)),]
+a
+b
+# we should just drop these from the data.  They appear to be test trips.
+```
+
+How about trips between Regions
+```{r}
+between_regions<- bikes[which(bikes$start_Region != bikes$end_Region & bikes$start_station!="3000" & bikes$end_station != "3000"), ] # 681 trips all one way (makes sense).  
+
+table(between_regions$start_Region, between_regions$end_Region) #most from dtla to venice or pasadena and venice to LA. 
+
+duration[which(bikes$start_Region != bikes$end_Region & bikes$start_station!="3000" & bikes$end_station != "3000") ]
+between_regions[,]
+```
+
+
+
+
+
+
+```{r}
+write.csv(bikes, "C:\\R\\DataComp\\bicycle_clean.csv", row.names = FALSE)
+```
+
+
+
+
+
+
+

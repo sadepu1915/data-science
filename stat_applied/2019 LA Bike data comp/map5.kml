@@ -1,0 +1,2563 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>map5</name>
+		<description> | Created with https://batchgeo.com</description>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Cabrillo Beach</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4126</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.284668,33.710979,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>DoubleTree Hotel</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4130</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.282722,33.719261,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Crafted 22nd St Park</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4129</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.28051,33.725819,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Ports O&apos;Call</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4133</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.277786,33.733521,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Downtown Harbor</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4131</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.279266,33.738979,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>USS IOWA</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4134</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.278069,33.74136,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Catalina Express</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4127</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.275192,33.74892,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Fanfare Fountain</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4132</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.280182,33.74913,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Banning&apos;s Landing</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4125</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.261017,33.766659,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Waterfront Park (West)</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4136</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.276543,33.771759,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Waterfront Park (East)</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4135</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.268044,33.772301,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#0</styleUrl>
+				<name>Anaheim &amp; Avalon</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3013</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/31/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Port of LA</address>
+				<Point>
+					<coordinates>-118.263023,33.779819,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Ocean Front Walk &amp; North Venice</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4210</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.47155,33.984341,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Pacific &amp; North Venice</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4211</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.469963,33.984928,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Windward &amp; Main</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4212</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.471741,33.988129,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Washington &amp; Abbot Kinney</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4204</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.45163,33.988419,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Abbot Kinney &amp; Cadiz</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4202</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.468292,33.991161,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Venice &amp; Lincoln</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4205</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.453667,33.993771,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>7th &amp; Westminster</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4213</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.464798,33.995369,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Ocean Front Walk &amp; Navy</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4214</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.481552,33.99556,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Rose &amp; Main</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4209</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.477448,33.996239,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>California &amp; Lincoln</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4206</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.461014,33.998341,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Rose &amp; Rennie</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4208</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.472977,33.99868,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Rose &amp; 7th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4207</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.46891,34.000881,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Expo Park/LAFC</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4275</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>12/18/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.285896,34.01252,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Downtown Santa Monica Expo Line Station</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4215</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.491341,34.014309,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Expo Park/USC Station</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4244</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>6/28/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.286728,34.018059,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Figueroa &amp; McCarthy Way</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4249</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>6/29/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.281181,34.020302,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>17th St / SMC Expo Line Station</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4216</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.479637,34.023392,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>32nd &amp; Figueroa</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4246</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/3/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.279167,34.023708,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>University &amp; Hoover</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4245</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/8/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.283409,34.02404,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Culver and Washington</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3039</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>2017-26-03</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.393867,34.024479,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hoover &amp; 32nd</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4273</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>10/8/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.284103,34.02586,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>1 LA warehouse</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4108</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.238243,34.02589,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Channing St</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4118</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>9/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.238319,34.026112,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#1</styleUrl>
+				<name>Windward and Pacific</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4118</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>2017-26-03</value>
+							</Data>
+									</ExtendedData>
+								<address> Venice</address>
+				<Point>
+					<coordinates>-118.238319,34.026112,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>28th &amp; Figueroa</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4266</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>11/29/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.277687,34.026291,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>28th &amp; University</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4267</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>8/23/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.280678,34.027618,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>29th &amp; Ellendale</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4248</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/2/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.288673,34.028351,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>18th &amp; San Pedro</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3045</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.256668,34.028511,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hoover &amp; 29th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4254</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>6/28/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.284111,34.028679,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand/LATTC</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4227</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>12/15/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.270309,34.0298,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Severance &amp; Adams</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4250</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/9/2018</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.280952,34.03017,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hill &amp; Washington</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3020</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.26709,34.031052,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Stanford &amp; 12th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3081</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/13/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.250183,34.031891,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand &amp; Washington</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3025</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.268082,34.03286,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>San Julian &amp; 12th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3080</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.254593,34.03421,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Imperial &amp; 7th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3037</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.231277,34.034801,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Pico &amp; Maple</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3060</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.25769,34.034882,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>18th &amp; Figueroa</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3057</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.270813,34.035679,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Industrial St &amp; Mateo St</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3058</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.23317,34.035801,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>11th &amp; Maple</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3010</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/10/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.254868,34.037048,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand &amp; 14th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3056</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.265381,34.03746,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>11th &amp; Santee</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3059</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.256271,34.037949,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>12th &amp; Hill</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3019</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.260857,34.038609,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Willow St &amp; Mateo St</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3036</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.232529,34.039188,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Factory Place &amp; Alameda</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3054</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.236488,34.039219,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>8th &amp; Wall</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3077</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.250038,34.039871,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Pico &amp; Flower</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3047</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.266403,34.039982,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>12th &amp; Grand</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3053</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.26302,34.0400391,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>9th &amp; Los Angeles</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3076</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.253838,34.0406,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Main &amp; 9th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3033</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.255798,34.040989,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Figueroa &amp; Pico</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3011</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/12/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.267982,34.04113,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>5th &amp; Hewitt</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3048</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/13/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.235352,34.041691,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hope &amp; 11th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3034</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.263382,34.042061,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Broadway &amp; 9th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3075</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.256187,34.04211,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand &amp; Olympic</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3018</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.260139,34.043732,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Soul Cycle</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4110</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>9/7/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.257637,34.043869,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>7th &amp; Main</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3055</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.251579,34.044159,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hope &amp; Olympic</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3074</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.261169,34.04417,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>7th &amp; Spring</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3031</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.252441,34.044701,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>LA Live</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3061</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>5/5/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.266243,34.04472,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Main &amp; 6th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3067</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.250237,34.045181,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>7th &amp; Broadway</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3051</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.253517,34.045422,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Olive &amp; 8th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3006</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.256668,34.04554,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>3rd &amp; Rose</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3021</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.23703,34.0456085,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>3rd &amp; Santa Fe</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3022</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.233093,34.04607,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Traction &amp; Rose</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3082</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>8/29/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.237411,34.04652,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Figueroa &amp; 9th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3008</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.262733,34.046612,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand &amp; 7th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3064</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/11/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.256981,34.04681,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Main &amp; 5th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3038</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.248352,34.046822,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Mariachi Plaza</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4276</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>12/2/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.218849,34.04739,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>3rd &amp; San Pedro</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3062</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.243172,34.047749,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Figueroa &amp; 8th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3035</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.260948,34.048401,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>7th &amp; Flower</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3005</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.258537,34.0485,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Main &amp; 4th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3029</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.246422,34.048851,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Olive &amp; 5th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3063</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.252831,34.049198,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>1st &amp; Central</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3042</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.238808,34.049301,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hope &amp; 6th</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3032</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.255882,34.049889,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Spring &amp; 3rd</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3027</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.247162,34.04998,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Temple &amp; Vignes</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3079</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.233238,34.05014,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>5th &amp; Grand</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3007</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.254593,34.05048,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Broadway &amp; 3rd</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3069</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.248253,34.05088,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>1st &amp; Judge John Aiso</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3023</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.240967,34.050911,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>7th &amp; Bixel</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3052</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.264557,34.051102,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Main &amp; 1st</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3030</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.24353,34.051941,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Los Angeles &amp; Temple</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3016</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.241562,34.052898,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>2nd &amp; Hill</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3046</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/12/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.247948,34.05302,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand &amp; 3rd</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3068</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.250954,34.0532,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Wilshire &amp; Witmer</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3040</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.266357,34.05357,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Union Station West Portal</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3014</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.237213,34.05661,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Union Station East</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4194</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/25/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.231392,34.056702,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>2nd &amp; Figueroa</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3049</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.253593,34.056969,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hope &amp; 1st</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3024</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/13/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.24897,34.05772,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Grand &amp; Temple</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3028</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.246094,34.058319,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>New High &amp; Ord</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3065</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.238327,34.060558,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Figueroa &amp; Cesar Chavez</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3026</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.24588,34.063179,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Spring &amp; College</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3066</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.23616,34.063389,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Hill &amp; College</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>3078</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/7/2016</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.238937,34.064281,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#2</styleUrl>
+				<name>Park &amp; Echo Park</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4220</value>
+							</Data>
+												<Data name='Status'>
+								<value>Active</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>9/28/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> DTLA</address>
+				<Point>
+					<coordinates>-118.258728,34.074829,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Fillmore Station</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4160</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.14856,34.133011,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Lake &amp; California</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4158</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.13237,34.13525,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Caltech East</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4176</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.122414,34.137859,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Caltech West</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4180</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/21/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.128502,34.137951,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Arroyo Parkway &amp; Bellevue</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4149</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.147079,34.13821,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Lake &amp; Del Mar</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4157</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.132088,34.140999,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Del Mar Station</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4165</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.149063,34.14175,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Los Robles &amp; Cordova</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4151</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.14151,34.142361,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Cordova &amp; Lake</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4144</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.132652,34.142399,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Pasadena &amp; Dayton</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4167</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.154099,34.143822,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Pasadena Convention Center</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4142</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.144592,34.144588,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Madison &amp; Colorado</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4177</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.13826,34.144981,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Fair Oaks &amp; Mercantile Alley</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4147</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.15007,34.145248,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Old Pasadena</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4138</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.148239,34.145691,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Garfield &amp; Colorado</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4143</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.144287,34.145748,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Pasadena City College</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4159</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.116539,34.145901,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Colorado &amp; Hill</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4166</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.12175,34.145908,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Catalina &amp; Colorado</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4183</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.129181,34.146069,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Oak Knoll &amp; Colorado</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4181</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.135262,34.146221,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Oakland &amp; Union</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4169</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.139839,34.146961,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Memorial Park Station</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4162</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.14801,34.147499,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Lake &amp; Union</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4155</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.132217,34.147812,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>City Hall West</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4146</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.145042,34.147831,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Pasadena Central Library</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4148</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.145111,34.14967,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Pasadena Museum</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4152</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.160172,34.149712,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Madison &amp; Walnut</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4156</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.13839,34.14991,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Lake &amp; Locust</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4163</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.132019,34.150471,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Villa Parke</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4150</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.142151,34.15427,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Fair Oaks &amp; Peoria</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4154</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.151192,34.15612,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Rose Bowl</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4153</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.166687,34.156181,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Lake &amp; Merrett</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4170</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.132401,34.160709,0</coordinates>
+				</Point>
+			</Placemark>
+					<Placemark>
+				<styleUrl>#3</styleUrl>
+				<name>Fair Oaks &amp; Hammond</name>				<ExtendedData>
+												<Data name='Station_ID'>
+								<value>4174</value>
+							</Data>
+												<Data name='Status'>
+								<value>Inactive</value>
+							</Data>
+												<Data name='Go_live_date'>
+								<value>7/14/2017</value>
+							</Data>
+									</ExtendedData>
+								<address> Pasadena</address>
+				<Point>
+					<coordinates>-118.15097,34.165291,0</coordinates>
+				</Point>
+			</Placemark>
+		<Style id="0"><IconStyle><scale>1</scale><Icon><href>https://batchgeo.com/images/icons/red_shadow_Marker.png</href></Icon><hotSpot x=".3" y=".8" xunits="fraction" yunits="fraction" /></IconStyle><LabelStyle><scale>0</scale></LabelStyle></Style><Style id="1"><IconStyle><scale>1</scale><Icon><href>https://batchgeo.com/images/icons/blue_shadow_Marker.png</href></Icon><hotSpot x=".3" y=".8" xunits="fraction" yunits="fraction" /></IconStyle><LabelStyle><scale>0</scale></LabelStyle></Style><Style id="2"><IconStyle><scale>1</scale><Icon><href>https://batchgeo.com/images/icons/green_shadow_Marker.png</href></Icon><hotSpot x=".3" y=".8" xunits="fraction" yunits="fraction" /></IconStyle><LabelStyle><scale>0</scale></LabelStyle></Style><Style id="3"><IconStyle><scale>1</scale><Icon><href>https://batchgeo.com/images/icons/yellow_shadow_Marker.png</href></Icon><hotSpot x=".3" y=".8" xunits="fraction" yunits="fraction" /></IconStyle><LabelStyle><scale>0</scale></LabelStyle></Style>	</Document>
+</kml>

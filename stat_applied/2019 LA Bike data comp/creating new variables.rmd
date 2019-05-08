@@ -1,0 +1,290 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+rm(list=ls())
+options(digits=10)
+```
+
+```{r}
+bikes<- read.csv("C:\\R\\DataComp\\bicycle_clean.csv")
+```
+
+```{r}
+bikes$start_station<- as.factor(bikes$start_station)
+bikes$end_station<- as.factor(bikes$end_station)
+bikes$plan_duration<- as.factor(bikes$plan_duration)# might need to change back later?
+
+
+bikes$start_time<- as.POSIXct.POSIXlt(strptime(bikes$start_time, "%Y-%m-%d %H:%M:%S", tz='PST8PDT'))
+bikes$end_time<- as.POSIXct.POSIXlt(strptime(bikes$end_time, "%Y-%m-%d %H:%M:%S", tz='PST8PDT'))
+bikes$start_Go_live_date<- as.POSIXct.POSIXlt(strptime(bikes$start_Go_live_date, format="%Y-%m-%d", tz='PST8PDT'))
+bikes$end_Go_live_date<- as.POSIXct.POSIXlt(strptime(bikes$end_Go_live_date, format="%Y-%m-%d", tz='PST8PDT'))
+```
+
+Adding a Duration
+```{r}
+duration<- difftime(bikes$end_time, bikes$ start_time, units="mins")
+duration<- as.numeric(duration)
+bikes<- cbind(bikes, duration)
+```
+
+Add Pay Periods
+```{r}
+pay_periods<- ceiling(duration/30)
+bikes<- cbind(bikes, pay_periods)
+```
+
+Add Distance
+```{r}
+source("C:\\R\\DataComp\\LatLonDistance.r")
+distance_ft<- LatLonDistance(bikes$start_lat, bikes$start_lon, bikes$end_lat, bikes$end_lon)
+distance_mi<- distance_ft/5280
+bikes<- cbind(bikes, distance_ft, distance_mi)
+```
+
+Speed anyone?
+```{r}
+velocity_mph<- distance_mi/duration * 60
+velocity_fps<- distance_ft/duration / 60
+bikes<- cbind(bikes, velocity_mph, velocity_fps)
+```
+
+```{r}
+hist(velocity_mph[velocity_mph>0])
+summary(velocity_mph)
+plot(ecdf(velocity_mph[velocity_mph>0]), xlim=c(0, 20))
+plot(ecdf(distance_ft[velocity_mph>0]), xlim=c(0,5280*2))
+
+quantile( (velocity_mph[velocity_mph>0&!is.na(velocity_mph)]), c( 0.99, 0.999, 0.9995, 0.9999, 0.99995) )
+#the majority of bikers aren't going too fast.  
+bikes[which(velocity_mph>35), ]
+#some of these are terribly unrealistic.  averaging > 24mph from station to station isn't reasonable
+#we'll have to decide how to determine if they're outliers or not.  One thing to look at are the 1 minute one way rides.
+bikes[which(duration==1 & bikes$trip_route_category=="One Way" & distance_mi>0.25), ] # I suppose these are possible.
+bikes[which(duration==2 & bikes$trip_route_category=="One Way" & velocity_mph>20), ]
+# have to figure out what's an outlier.  definitely above 35mph.  
+```
+
+Create a cost structure
+```{r}
+n_obs<- length(bikes$trip_id)
+n_website<- 685388
+n_pass_web<- 65092
+
+#685,388 trips 65,092 pass sold as of 3/12/19. from the website.
+#639688 trips in data we'll take the proportion of observations we have, create a proportion and estimate how many passes were sold.
+prop<-n_obs/n_website
+n_passes<- prop * n_pass_web #60,761
+
+#now that we know the number of passes, we can try to estimate the number of passes per category by estimating the proportion of rides per passholder type.
+t2<- table(bikes$passholder_type, bikes$plan_duration)
+t1<- table(bikes$passholder_type, rep(1, n_obs))
+
+rides_on_pass<- t1[1:3] # annual, flex, monthly
+prop_on_pass<- rides_on_pass/sum(rides_on_pass)
+n_pass_type<- round(prop_on_pass*n_passes,0) #annual, flex, monthly
+revenue_passes<- n_pass_type * c(150, 10, 17)
+
+#price per trip
+revenue_per_trip<- revenue_passes/rides_on_pass
+
+revenue<- rep(NA, n_obs)
+# walk up passes #1.75 per half hour
+revenue[which(bikes$passholder_type=="Walk-up")]<- 1.75*bikes$pay_periods[which(bikes$passholder_type=="Walk-up")]
+
+# 1 day pass = $5 + free first half hour + $1.75 after
+revenue[which(bikes$passholder_type=="One Day Pass")]<- 1.75*(bikes$pay_periods[which(bikes$passholder_type=="One Day Pass")] - 1) + 2.50
+
+#monthly pass = $17/month + free first half hour + $1.75 after
+revenue[which(bikes$passholder_type=="Monthly Pass")]<- 1.75*(bikes$pay_periods[which(bikes$passholder_type=="Monthly Pass")] - 1) + revenue_per_trip[3]
+
+#annual pass = $150/year + free first half hour + $1.75 after
+revenue[which(bikes$passholder_type=="Annual Pass")]<- 1.75*(bikes$pay_periods[which(bikes$passholder_type=="Annual Pass")] - 1) + revenue_per_trip[1]
+
+#flex passes $10/mon + free first half hour + $1.75 after #min 6 month contrib
+revenue[which(bikes$passholder_type=="Flex Pass")]<- 1.75*(bikes$pay_periods[which(bikes$passholder_type=="Flex Pass")] - 1) + revenue_per_trip[2]
+
+
+# bulk walk ups Number of Passes 	Price per Pass 	Discount
+ #50-99 	 $1.40 	 20%
+ #100-499 	 $1.22 	 30%
+ #500+ 	 $0.87 	 50%
+
+bikes<- cbind(bikes, revenue)
+```
+
+
+#getting hour
+```{r}
+hour_start<- as.POSIXlt(bikes$start_time)$hour 
+hour_end<- as.POSIXlt(bikes$end_time)$hour
+
+
+at <- c(seq(0,24, by=3))
+hist(hour_start+1, breaks=seq(-1,25, by=1) , xlim=c(0,24), xaxt="n", main="Start Time Frequency by Hour", xlab="Starting Hour", ylab="Frequency")
+axis(side = 1, at = at)
+
+
+
+at
+# argument 'side': specifies which side of the plot the axis is to be drawn on.
+# 1 = x axis
+
+# argument 'labels'
+# "If labels is not specified, the numeric values supplied or calculated for 'at'
+# are converted to character strings as if they were a numeric vector printed
+# but note: "The code tries hard not to draw overlapping tick labels,
+# and so will omit labels where they would abut or overlap previously drawn labels"
+
+
+
+
+
+hist(hour_end,breaks=seq(0,24, by=1))
+
+length(hour_start[hour_start==0])
+```
+
+Extract Month/Year
+```{r}
+
+month<- format(bikes$start_time, "%m")
+year<- format(bikes$start_time, "%Y")
+year_month<- format(bikes$start_time, "%Y-%m")
+bikes<- cbind(bikes, month, year, year_month)
+```
+
+```{r}
+bikes_nona<- bikes[which(bikes$start_Region!="N/A"), ]
+
+aggregate_monthly_region<- aggregate(bikes_nona$trip_id, by=list(bikes_nona$year_month, bikes_nona$start_Region), FUN=length)
+colnames(aggregate_monthly_region)<- c("Month", "Region", "Count")
+
+library(ggplot2)
+ggplot(aggregate_monthly_region,aes(Month,Count)) + geom_point(aes(group=Region, color=Region)) + 
+  geom_line(aes( group=Region, color=Region)) +
+  theme_bw() + 
+  theme(axis.text.x=element_text(angle=90,hjust=1))+
+  ggtitle("Number of Trips by Region")
+
+#need average trips/station by region
+mon_agg<- aggregate_monthly_region[,"Month"]
+n_stn_mon<- rep(NA, length(aggregate_monthly_region$Month))
+i=0
+for(mon in mon_agg){
+  i=i+1
+  if(i<=30){
+    n_stn_mon[i]<- length(unique(bikes[which(bikes$start_Region=="DTLA" &
+                                               year_month==mon),"start_station" ] )) 
+  }
+  else if(i>30 & i<46){
+    n_stn_mon[i]<- length(unique(bikes[which(bikes$start_Region=="Pasadena" &
+                                               year_month==mon), "start_station"] ))
+  }
+  else if(i>=46 & i <64){
+    n_stn_mon[i]<- length(unique(bikes[which(bikes$start_Region=="Port of LA" & 
+                                               year_month==mon), "start_station"] ))
+  }
+  else if(i>=64){
+    n_stn_mon[i]<- length(unique(bikes[which(bikes$start_Region=="Venice" &
+                                               year_month==mon), "start_station"] ))
+  }
+}
+n_stn_mon
+
+stn_agg<- cbind(aggregate_monthly_region, Stations = n_stn_mon, Ride_per_stn = aggregate_monthly_region$Count/n_stn_mon)
+stn_agg
+
+ggplot(stn_agg,aes(Month,Ride_per_stn)) + 
+  geom_point(aes(group=Region, color=Region)) + 
+  geom_line(aes( group=Region, color=Region)) +
+  theme_bw() + 
+  theme(axis.text.x=element_text(angle=90,hjust=1))+
+  ggtitle("Average Trips/Station by Region")
+```
+
+Revenue Plots By location
+```{r}
+aggregate_revenue_region<- aggregate(bikes_nona$revenue, by=list(bikes_nona$year_month, bikes_nona$start_Region), FUN=sum)
+colnames(aggregate_revenue_region)<- c("Month", "Region", "Revenue")
+
+aggregate_revenue_region<- cbind(aggregate_revenue_region, Stations=n_stn_mon, rev_stn = aggregate_revenue_region$Revenue/n_stn_mon)
+aggregate_revenue_region
+```
+
+```{r}
+
+ggplot(aggregate_revenue_region,aes(Month,Revenue)) + geom_point(aes(group=Region, color=Region)) + 
+  geom_line(aes( group=Region, color=Region)) +
+  theme_bw() + 
+  theme(axis.text.x=element_text(angle=90,hjust=1))+
+  ggtitle("Estimated Monthly Revenue by Region")
+ggplot(aggregate_revenue_region,aes(Month,rev_stn)) + geom_point(aes(group=Region, color=Region)) + 
+  geom_line(aes( group=Region, color=Region)) +
+  theme_bw() + 
+  theme(axis.text.x=element_text(angle=90,hjust=1))+
+  ggtitle("Estimated Monthly Revenue per Station by Region")
+aggregate_revenue_region
+```
+
+
+#Popular Stations
+```{r}
+t1<- aggregate(bikes$trip_id, by=list(bikes$start_station_Name), FUN=length)
+colnames(t1)<- c("Station_Name", "Trips")
+t1_sorted<- t1[order(t1$Trips, decreasing=TRUE),]
+
+ggplot(data=t1_sorted[1:15,], aes(x=reorder(Station_Name, -Trips), y=Trips)) + 
+  geom_bar(stat="identity")+
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=30,hjust=1))+
+  xlab("Station Name")+
+  ggtitle("Number of Trips from the 15 Most Popular Start Stations")
+
+
+ggplot(data=t1_sorted[127:142,], aes(x=reorder(Station_Name, Trips), y=Trips)) + 
+  geom_bar(stat="identity", fill='lightblue')+
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  xlab("Station Name")+
+  ggtitle("Number of Trips from the 15 LEAST Popular Start Stations")
+
+t2<- aggregate(bikes$trip_id, by=list(bikes$start_Region,bikes$start_station_Name), FUN=length)
+colnames(t2)<- c("Region", "Station", "Trips")
+venice_trips<- t2[which(t2$Region=="Venice"),-1]
+venice_trips_sorted<- venice_trips[order(venice_trips$Trips, decreasing = TRUE),]
+ggplot(data=venice_trips_sorted, aes(x=reorder(Station, -Trips), y=Trips)) + 
+  geom_bar(stat="identity")+
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  xlab("Station Name")+
+  ggtitle("Popularity of Venice Stations")
+
+t3<- aggregate(bikes$revenue, by=list(bikes$start_Region,bikes$start_station_Name), FUN=sum)
+colnames(t3)<- c("Region", "Station", "Revenue")
+venice_revenue_station<- t3[which(t3$Region=="Venice"),-1]
+
+ggplot(data=venice_revenue_station, aes(x=reorder(Station, -Revenue), y=Revenue)) + 
+  geom_bar(stat="identity")+
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  xlab("Station Name")+
+  ggtitle("Estimated Total Revenue of Venice Stations")+
+  ylim(c(0,120000))
+
+t4<- aggregate(bikes$revenue, by=list(bikes$start_station_Name), FUN=sum)
+colnames(t4)<- c("Station", "Revenue")
+t4_s<- t4[order(t4$Revenue, decreasing = T),]
+
+ggplot(data=t4_s[1:20,], aes(x=reorder(Station, -Revenue), y=Revenue)) + 
+  geom_bar(stat="identity")+
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+  xlab("Station Name")+
+  ggtitle("Estimated Total Revenue of Best Stations")+
+  ylim(c(0,120000))
+```
+

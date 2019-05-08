@@ -1,0 +1,461 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={TAMU 2019 Data Competition: Data Cleaning},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{TAMU 2019 Data Competition: Data Cleaning}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+\maketitle
+
+Correcting Stations Data and adding latitudes and longitudes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{())}
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{digits=}\DecValTok{10}\NormalTok{) }\CommentTok{#this is needed because the lat/lon will get truncated otherwise.}
+\KeywordTok{Sys.Date}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2019-03-23"
+\end{verbatim}
+
+Feel The Station Data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stations<-}\StringTok{ }\NormalTok{readxl}\OperatorTok{::}\KeywordTok{read_xlsx}\NormalTok{(}\StringTok{"./data/Station_Table.xlsx"}\NormalTok{)}
+\KeywordTok{head}\NormalTok{(stations)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   Station_ID Station_Name    Go_live_date Region Status
+##        <dbl> <chr>           <chr>        <chr>  <chr> 
+## 1       3000 Virtual Station 7/7/2016     N/A    Active
+## 2       3005 7th & Flower    7/7/2016     DTLA   Active
+## 3       3006 Olive & 8th     7/7/2016     DTLA   Active
+## 4       3007 5th & Grand     7/7/2016     DTLA   Active
+## 5       3008 Figueroa & 9th  7/7/2016     DTLA   Active
+## 6       3010 11th & Maple    7/10/2016    DTLA   Active
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(stations)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 143   5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colSums}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(stations))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Station_ID Station_Name Go_live_date       Region       Status 
+##            0            3            3            3            3
+\end{verbatim}
+
+Find Missing Stations
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sapply}\NormalTok{(stations, }\ControlFlowTok{function}\NormalTok{(itr) stations[}\KeywordTok{which}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(itr)),]}\OperatorTok{$}\NormalTok{Station_ID)}\OperatorTok{$}\NormalTok{Station_Name}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4110 4118 4276
+\end{verbatim}
+
+Fixing Missing Stations
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{i_}\DecValTok{4110}\NormalTok{<-}\KeywordTok{which}\NormalTok{(stations}\OperatorTok{$}\NormalTok{Station_ID}\OperatorTok{==}\StringTok{"4110"}\NormalTok{)}
+\NormalTok{stations[ i_}\DecValTok{4110}\NormalTok{,]<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{Station_ID=}\StringTok{"4110"}\NormalTok{,}
+                   \DataTypeTok{Station_Name=}\StringTok{"Soul Cycle"}\NormalTok{,}
+                   \DataTypeTok{Go_live_date=}\StringTok{"2017-09-07"}\NormalTok{,}
+                   \DataTypeTok{Region=}\StringTok{"DTLA"}\NormalTok{,}
+                   \DataTypeTok{Status=}\StringTok{"Inactive"}\NormalTok{)}
+
+\NormalTok{i_}\DecValTok{4276}\NormalTok{<-}\KeywordTok{which}\NormalTok{(stations}\OperatorTok{$}\NormalTok{Station_ID}\OperatorTok{==}\StringTok{"4276"}\NormalTok{)}
+\NormalTok{stations[ i_}\DecValTok{4276}\NormalTok{,]<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{Station_ID=}\StringTok{"4276"}\NormalTok{,}
+                   \DataTypeTok{Station_Name=}\StringTok{"Mariachi Plaza"}\NormalTok{,}
+                   \DataTypeTok{Go_live_date=}\StringTok{"2017-12-02"}\NormalTok{,}
+                   \DataTypeTok{Region=}\StringTok{"DTLA"}\NormalTok{,}
+                   \DataTypeTok{Status=}\StringTok{"Inactive"}\NormalTok{)}
+\CommentTok{#https://www.laworks.com/opportunity/a0C1N00000GHHzqUAH}
+
+\NormalTok{##This one needs to be recoded for all the other files.}
+\NormalTok{i_}\DecValTok{4118}\NormalTok{<-}\KeywordTok{which}\NormalTok{(stations}\OperatorTok{$}\NormalTok{Station_ID}\OperatorTok{==}\StringTok{"4118"}\NormalTok{)}
+\NormalTok{stations[ i_}\DecValTok{4118}\NormalTok{,]<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{Station_ID=}\StringTok{"4118"}\NormalTok{,}
+                   \DataTypeTok{Station_Name=}\StringTok{"Channing St"}\NormalTok{,}
+                   \DataTypeTok{Go_live_date=}\StringTok{"2017-9-07"}\NormalTok{,}
+                   \DataTypeTok{Region=}\StringTok{"DTLA"}\NormalTok{,}
+                   \DataTypeTok{Status=}\StringTok{"Inactive"}\NormalTok{)}
+
+\CommentTok{# These two stations were special events for 3/26/2017.}
+\CommentTok{#https://thecabe.com/forum/threads/ciclavia-venice-beach-california-march-26-2017.107254/}
+\NormalTok{station_}\DecValTok{3009}\NormalTok{<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{Station_ID=}\StringTok{"3009"}\NormalTok{,}
+                 \DataTypeTok{Station_Name=}\StringTok{"Windward and Pacific"}\NormalTok{,}
+                 \DataTypeTok{Go_live_date=}\StringTok{"2017-26-03"}\NormalTok{,}
+                 \DataTypeTok{Region=}\StringTok{"Venice"}\NormalTok{,}
+                 \DataTypeTok{Status=}\StringTok{"Inactive"}\NormalTok{)}
+\NormalTok{stations<-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(stations, station_}\DecValTok{3009}\NormalTok{)}
+
+\NormalTok{station_}\DecValTok{3039}\NormalTok{<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{Station_ID=}\StringTok{"3039"}\NormalTok{,}
+                 \DataTypeTok{Station_Name=}\StringTok{"Culver and Washington"}\NormalTok{,}
+                 \DataTypeTok{Go_live_date=}\StringTok{"2017-26-03"}\NormalTok{,}
+                 \DataTypeTok{Region=}\StringTok{"Venice"}\NormalTok{,}
+                 \DataTypeTok{Status=}\StringTok{"Inactive"}\NormalTok{)}
+\NormalTok{stations<-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(stations, station_}\DecValTok{3039}\NormalTok{)}
+
+\CommentTok{# This station is the same as the Olive and 5th station, but it moved so far, it needs a new name.}
+\NormalTok{station_}\DecValTok{9999}\NormalTok{<-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{Station_ID=}\StringTok{"9999"}\NormalTok{,}
+                 \DataTypeTok{Station_Name=}\StringTok{"Olive and 6th"}\NormalTok{,}
+                 \DataTypeTok{Go_live_date=}\StringTok{"2016-10-01"}\NormalTok{,}
+                 \DataTypeTok{Region=}\StringTok{"DTLA"}\NormalTok{,}
+                 \DataTypeTok{Status=}\StringTok{"Inactive"}\NormalTok{,}
+                 \DataTypeTok{latitude =} \FloatTok{34.048038}\NormalTok{,}
+                 \DataTypeTok{longitude =} \OperatorTok{-}\FloatTok{118.253738}\NormalTok{)}
+\NormalTok{stations<-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(stations, station_}\DecValTok{9999}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Finding Active/Inactive Stations/Region
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(stations}\OperatorTok{$}\NormalTok{Region, stations}\OperatorTok{$}\NormalTok{Status)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             
+##              Active Inactive
+##   DTLA           68       15
+##   N/A             1        0
+##   Pasadena        0       33
+##   Port of LA     12        0
+##   Venice         14        3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#revisit}
+\CommentTok{#test for chisq.test.}
+\CommentTok{#p-value < 0.05 not independent ..corr might be exists}
+\CommentTok{#p-value > 0.05 independent }
+\KeywordTok{summary}\NormalTok{(}\KeywordTok{table}\NormalTok{(stations}\OperatorTok{$}\NormalTok{Region, stations}\OperatorTok{$}\NormalTok{Status))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Number of cases in table: 146 
+## Number of factors: 2 
+## Test for independence of all factors:
+##  Chisq = 81.06322, df = 4, p-value = 1.036872e-16
+##  Chi-squared approximation may be incorrect
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{inactiveAllStationList<-stations[stations}\OperatorTok{$}\NormalTok{Status}\OperatorTok{==}\StringTok{"Inactive"}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"Station_ID"}\NormalTok{, }\StringTok{"Region"}\NormalTok{)]}
+\KeywordTok{table}\NormalTok{(inactiveAllStationList}\OperatorTok{$}\NormalTok{Region)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##     DTLA Pasadena   Venice 
+##       15       33        3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{inactiveStationListPerRegion<-}\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(inactiveAllStationList, inactiveAllStationList}\OperatorTok{$}\NormalTok{Region), }\ControlFlowTok{function}\NormalTok{(col) col}\OperatorTok{$}\NormalTok{Station_ID)}
+\NormalTok{inactiveStationListPerRegion}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $DTLA
+##  [1] "3021" "3053" "3055" "3059" "3060" "3061" "3079" "3080" "4108" "4110"
+## [11] "4118" "4194" "4244" "4276" "9999"
+## 
+## $Pasadena
+##  [1] "4138" "4142" "4143" "4144" "4146" "4147" "4148" "4149" "4150" "4151"
+## [11] "4152" "4153" "4154" "4155" "4156" "4157" "4158" "4159" "4160" "4162"
+## [21] "4163" "4164" "4165" "4166" "4167" "4169" "4170" "4174" "4176" "4177"
+## [31] "4180" "4181" "4183"
+## 
+## $Venice
+## [1] "4217" "3009" "3039"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activeAllStationList<-stations[stations}\OperatorTok{$}\NormalTok{Status}\OperatorTok{==}\StringTok{"Active"}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"Station_ID"}\NormalTok{, }\StringTok{"Region"}\NormalTok{)]}
+\CommentTok{#virtual region N/A}
+\KeywordTok{table}\NormalTok{(activeAllStationList}\OperatorTok{$}\NormalTok{Region) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##       DTLA        N/A Port of LA     Venice 
+##         68          1         12         14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{activeStationListPerRegion<-}\KeywordTok{sapply}\NormalTok{(}\KeywordTok{split}\NormalTok{(activeAllStationList, activeAllStationList}\OperatorTok{$}\NormalTok{Region), }\ControlFlowTok{function}\NormalTok{(col) col}\OperatorTok{$}\NormalTok{Station_ID)}
+\NormalTok{activeStationListPerRegion}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $DTLA
+##  [1] "3005" "3006" "3007" "3008" "3010" "3011" "3014" "3016" "3018" "3019"
+## [11] "3020" "3022" "3023" "3024" "3025" "3026" "3027" "3028" "3029" "3030"
+## [21] "3031" "3032" "3033" "3034" "3035" "3036" "3037" "3038" "3040" "3042"
+## [31] "3045" "3046" "3047" "3048" "3049" "3051" "3052" "3054" "3056" "3057"
+## [41] "3058" "3062" "3063" "3064" "3065" "3066" "3067" "3068" "3069" "3074"
+## [51] "3075" "3076" "3077" "3078" "3081" "3082" "4220" "4227" "4245" "4246"
+## [61] "4248" "4249" "4250" "4254" "4266" "4267" "4273" "4275"
+## 
+## $`N/A`
+## [1] "3000"
+## 
+## $`Port of LA`
+##  [1] "3013" "4125" "4126" "4127" "4129" "4130" "4131" "4132" "4133" "4134"
+## [11] "4135" "4136"
+## 
+## $Venice
+##  [1] "4202" "4204" "4205" "4206" "4207" "4208" "4209" "4210" "4211" "4212"
+## [11] "4213" "4214" "4215" "4216"
+\end{verbatim}
+
+The loops below try to find the most frequent latitudes and longitudes
+associated with each station. Some stations have multiple latitudes and
+longitudes with varying numbers. We'll do this to standardize the data.
+Once we find the most frequent latitude and longitude, we'll write it to
+the stations file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bikes<-}\StringTok{ }\NormalTok{readxl}\OperatorTok{::}\KeywordTok{read_xlsx}\NormalTok{(}\StringTok{"./data/LABikeData.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{digits=}\DecValTok{10}\NormalTok{)}
+
+\NormalTok{getLatLongForStation <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(stationId)}
+\NormalTok{\{}
+\NormalTok{  startLatLongList<-}\KeywordTok{split}\NormalTok{(bikes, bikes}\OperatorTok{$}\NormalTok{start_station}\OperatorTok{==}\NormalTok{stationId)[[}\StringTok{"TRUE"}\NormalTok{]][}\KeywordTok{c}\NormalTok{(}\StringTok{"start_lat"}\NormalTok{,}\StringTok{"start_lon"}\NormalTok{)]}
+\NormalTok{  endLatLongList<-}\KeywordTok{split}\NormalTok{(bikes, bikes}\OperatorTok{$}\NormalTok{end_station}\OperatorTok{==}\NormalTok{stationId)[[}\StringTok{"TRUE"}\NormalTok{]][}\KeywordTok{c}\NormalTok{(}\StringTok{"end_lat"}\NormalTok{,}\StringTok{"end_lon"}\NormalTok{)]}
+  
+\NormalTok{  uniqLat <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(}\KeywordTok{c}\NormalTok{(startLatLongList}\OperatorTok{$}\NormalTok{start_lat,endLatLongList}\OperatorTok{$}\NormalTok{end_lat))}
+\NormalTok{  uniqLong <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(}\KeywordTok{c}\NormalTok{(startLatLongList}\OperatorTok{$}\NormalTok{start_lon,endLatLongList}\OperatorTok{$}\NormalTok{end_lon))}
+
+\NormalTok{  maxNoOfObsForLat<-}\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{  maxNoOfObsForLong<-}\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+  
+  \ControlFlowTok{for}\NormalTok{ (lat }\ControlFlowTok{in}\NormalTok{ uniqLat)}
+\NormalTok{  \{}
+\NormalTok{     startLatCount<-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(startLatLongList[startLatLongList}\OperatorTok{$}\NormalTok{start_lat}\OperatorTok{==}\NormalTok{lat,])}
+     \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(startLatCount))}
+\NormalTok{        startLatCount<-}\DecValTok{0}
+     
+\NormalTok{     endLatCount <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(endLatLongList[endLatLongList}\OperatorTok{$}\NormalTok{end_lat}\OperatorTok{==}\NormalTok{lat, ])}
+     \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(endLatCount))}
+\NormalTok{        endLatCount<-}\DecValTok{0}
+     
+\NormalTok{     latCount<-startLatCount }\OperatorTok{+}\StringTok{ }\NormalTok{endLatCount}
+\NormalTok{     maxNoOfObsForLat<-}\KeywordTok{c}\NormalTok{(maxNoOfObsForLat, latCount)}
+\NormalTok{  \}}
+  
+  \ControlFlowTok{for}\NormalTok{ (long }\ControlFlowTok{in}\NormalTok{ uniqLong)}
+\NormalTok{  \{}
+\NormalTok{     startLongCount<-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(startLatLongList[startLatLongList}\OperatorTok{$}\NormalTok{start_lon}\OperatorTok{==}\NormalTok{long,])}
+     \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(startLongCount))}
+\NormalTok{       startLongCount<-}\DecValTok{0}
+     
+\NormalTok{     endLongCount <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(endLatLongList[endLatLongList}\OperatorTok{$}\NormalTok{end_lon}\OperatorTok{==}\NormalTok{long, ])}
+     \ControlFlowTok{if}\NormalTok{(}\KeywordTok{is.null}\NormalTok{(endLongCount))}
+\NormalTok{        endLongCount<-}\DecValTok{0}
+     
+\NormalTok{     LongCount<-startLongCount }\OperatorTok{+}\StringTok{ }\NormalTok{endLongCount}
+\NormalTok{     maxNoOfObsForLong<-}\KeywordTok{c}\NormalTok{(maxNoOfObsForLong, LongCount)}
+\NormalTok{  \}}
+  
+\NormalTok{  LatDf<-}\KeywordTok{data.frame}\NormalTok{(uniqLat,maxNoOfObsForLat)}
+\NormalTok{  LongDf<-}\KeywordTok{data.frame}\NormalTok{(uniqLong, maxNoOfObsForLong)}
+  
+\NormalTok{  tmpLat<-}\DecValTok{0}
+\NormalTok{  tmpLong<-}\DecValTok{0}
+  
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{dim}\NormalTok{(LatDf)[}\DecValTok{1}\NormalTok{] }\OperatorTok{>=}\DecValTok{1} \OperatorTok{&}\StringTok{ }\KeywordTok{dim}\NormalTok{(LatDf)[}\DecValTok{2}\NormalTok{] }\OperatorTok{>=}\DecValTok{1}\NormalTok{)}
+\NormalTok{    tmpLat<-LatDf[}\KeywordTok{order}\NormalTok{(LatDf}\OperatorTok{$}\NormalTok{maxNoOfObsForLat, }\DataTypeTok{decreasing =} \OtherTok{TRUE}\NormalTok{),][}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+  
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{dim}\NormalTok{(LongDf)[}\DecValTok{1}\NormalTok{] }\OperatorTok{>=}\DecValTok{1} \OperatorTok{&}\StringTok{ }\KeywordTok{dim}\NormalTok{(LongDf)[}\DecValTok{2}\NormalTok{] }\OperatorTok{>=}\DecValTok{1}\NormalTok{)}
+\NormalTok{    tmpLong<-LongDf[}\KeywordTok{order}\NormalTok{(LongDf}\OperatorTok{$}\NormalTok{maxNoOfObsForLong, }\DataTypeTok{decreasing =} \OtherTok{TRUE}\NormalTok{),][}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+  
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{c}\NormalTok{(tmpLat, tmpLong))}
+  
+\NormalTok{\}}
+\KeywordTok{system.time}\NormalTok{(vOfLatLong<-}\KeywordTok{sapply}\NormalTok{(stations}\OperatorTok{$}\NormalTok{Station_ID, getLatLongForStation))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+## 133.741   5.541 139.423
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cleanStations<-}\KeywordTok{cbind}\NormalTok{(stations, }\DataTypeTok{latitude=}\KeywordTok{unname}\NormalTok{(vOfLatLong[}\DecValTok{1}\NormalTok{,]), }\DataTypeTok{longitude=}\KeywordTok{unname}\NormalTok{(vOfLatLong[}\DecValTok{2}\NormalTok{,]))}
+\end{Highlighting}
+\end{Shaded}
+
+more cleanup station id 4164, 4217 no entry in bike data removing
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cleanStations<-cleanStations[}\OperatorTok{!}\NormalTok{cleanStations}\OperatorTok{$}\NormalTok{Station_ID}\OperatorTok{==}\DecValTok{4164}\NormalTok{, ]}
+\NormalTok{cleanStations<-cleanStations[}\OperatorTok{!}\NormalTok{cleanStations}\OperatorTok{$}\NormalTok{Station_ID}\OperatorTok{==}\DecValTok{4217}\NormalTok{, ]}
+\KeywordTok{write.csv}\NormalTok{(cleanStations, }\StringTok{"./data/stations_cleaned.csv"}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

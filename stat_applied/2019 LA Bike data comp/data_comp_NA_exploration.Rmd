@@ -1,0 +1,413 @@
+---
+title: "Data Competition Notebook G. Bultman"
+date: "3/6/2019"
+output: html_notebook
+---
+```{r}
+'
+comments 3/6/2019 gb:  So far, I looked through the NA values in the station file and the NAs in the bikes file.  I am terrible at manipulating data frames and imputing values.  I tried to put values in the missing stations, but it didnt work too well.  I put a section in to merge the data bike data and the station data.  Should probably do this once the station data is fixed.
+
+https://bikeshare.metro.net/about/data/
+A "Virtual Station" listed in the checkout and return kiosks, is used by staff to check in or check out a bike remotely for a special event or in a situation in which a bike could not otherwise be checked in or out to a station.
+
+The central question is how have LA Bike commutes changed over from 2016 when the Metro Bike Share program began until today?  In particular, contestants are asked to consider how revenue and trips for a typical day have changed over both location and time. Is the number of tickets and passports increasing in all three Regions?  Has the mileage among one-way commuters increased, and how?  Is the number of trips increasing?
+'
+```
+
+```{r}
+rm(list=ls())
+options(digits=10) #this is needed because the lat/lon will get truncated otherwise.
+```
+#SEMMA Sample Explore Modify Model Assess
+
+#Part 1
+##S - Sample Data
+
+
+Sample Data from files
+```{r}
+
+bikes<- readxl::read_xlsx("~/Documents/MS/2019Comp/LABikeData.xlsx")
+stations<- readxl::read_xlsx("~/Documents/MS/2019Comp/Station_Table.xlsx")
+
+head(bikes)
+dim(bikes)
+class(bikes)
+colnames(bikes)
+
+sapply(bikes,function(x) sum(is.na(x)))
+apply(bikes,2,function(x) sum(is.na(x)))
+colSums(is.na(bikes))
+head(bikes$start_station)
+length(table(bikes$start_station))
+
+tapply(stations$Station_ID, stations$Region, length)
+stations[stations$Region=="Venice",] # NAs
+subset(stations, subset=c(Region=="Venice"))
+subset(stations, subset=c(Region=="Venice"))$Station_ID
+
+table(stations$Region)
+table(stations$Region, stations$Status)
+subset(stations, Region=="Venice" & Status == "Active")
+subset(stations, select=c(Station_ID, Region), Status == "Inactive")
+colSums(is.na(stations))
+head(stations$Station_ID)
+length(table(stations$Station_ID))
+table(stations$Station_ID)
+
+```
+
+
+
+###Merge station data table and bikes data table
+```{r}
+
+
+```
+
+
+
+##E - Explore
+```{r}
+summary(bikes)
+summary(stations)
+```
+
+###Need to take a look at NA values first.  We'll impute them later.
+First we look at the missing values in the station data.  There are 3 rows with missing data.
+```{r}
+stations[which(is.na(stations$Station_Name)),]
+#stations[which(is.na(stations$Station_Name)),]$Station_ID
+#4110, 4118 and 4276
+```
+
+Station 4110
+```{r}
+#Lets see if we have longitude and latitude
+bikes[which(bikes$end_station=="4110"|bikes$start_station=="4110"),] #221 of these  they were all ending stations.  
+#Station 4110 end lat = 34.04387, end_lon=-118.2576 region=DTLA
+bikes[which(bikes$end_station=="4110"),c("start_time", "end_time")]
+
+# For some reason that doesn't wanna display in the notebook window. copy below to input into the console.
+#print(bikes[which(bikes$end_station=="4110"),c("start_time", "end_time", "passholder_type", "start_station")],n=221)
+
+#The only data is from september 7-30.  Maybe a temporary station or an obsolete station?
+
+#Looks like this is some sort of bike shop or bike fitness place.  SoulCycle DTLA.  It's in a luxury apartment building.  The google map view didn't show any bike docking stations.  Maybe they're inside the building. It's not on the LA metro bike share station map either.  
+i_4110<-which(stations$Station_ID=="4110")
+stations[ i_4110,]<- c(Station_ID="4110",
+                   Station_Name="Soul Cycle",
+                   Go_live_date="2017-09-07",
+                   Region="DTLA",
+                   Status="Inactive")
+stations[i_4110,]
+# we'll use this code in another file where we clean up the station names.
+```
+
+Station 4276
+```{r}
+bikes[which(bikes$end_station=="4276"|bikes$start_station=="4276"),] #251 of these
+# Station 4276 latitude = 34.04739 longitude=-118.2188
+
+# This one is Mariachi Plaza.  It's not indicated on the station map either. 
+
+#Look if they're all the same time frame 
+#copy below into console.
+#print(bikes[which(bikes$end_station=="4276"|bikes$start_station=="4276"),c("start_time", "end_time")], n=251)
+
+# Looking at the start & end times, they all started between 3:07 AM 0n 12/2/18 and 2:56 PM 12/2/18.  Maybe there was a special event here.  
+# Yep.  Some sort of bike thing.
+#https://www.laworks.com/opportunity/a0C1N00000GHHzqUAH
+# They've got a lot of specia events for cicLAvia.  
+# https://www.ciclavia.org/heart_of_la18
+i_4276<-which(stations$Station_ID=="4276")
+stations[ i_4276,]<- c(Station_ID="4276",
+                   Station_Name="Mariachi Plaza",
+                   Go_live_date="2017-12-02",
+                   Region="DTLA",
+                   Status="Inactive")
+stations[i_4276,]
+```
+
+Station 4118
+```{r}
+
+bikes[which(bikes$end_station=="4118"|bikes$start_station=="4118"),] 
+#print(bikes[which(bikes$end_station=="4118"|bikes$start_station=="4118"),c("start_time", "end_time", "start_station", "passholder_type")], n=28) They're all from the 9/7 - 10/1, same as the soulcycle bikes.  
+
+#28 all ending stations.  All walkups
+#Station 4118: end lat = 34.02611, end_lon= -118.2383
+
+
+# This one is on channing street.  It shows up on the station map right now as "smart bike available".  
+#It looks pretty sketchy on google maps.  There's grafitti everywhere and a homeless camp nearby.  
+# There's a metro bike van parked outside of kruse metals manufacturing company in this picture.  Maybe they're picking it up because it's stolen??
+#https://www.google.com/maps/@34.025588,-118.2379854,3a,28y,333.31h,91.57t/data=!3m6!1e1!3m4!1sOdIpNvQAEl_9S1uVyyJwKw!2e0!7i16384!8i8192
+
+i_4118<-which(stations$Station_ID=="4118")
+stations[ i_4118,]<- c(Station_ID="4118",
+                   Station_Name="Channing St",
+                   Go_live_date="2017-9-07",
+                   Region="DTLA",
+                   Status="Inactive")
+stations[i_4118,]
+```
+
+Let's look at the stations data summary again
+```{r}
+#stations$Station_Name<- as.factor(stations$Station_Name)
+summary(stations)
+#looks like we've filled in all the missing stations.  there's one with a missing region.  lets take a look
+stations[stations$Region=="N/A",]# It's the virtual station.  That seemed to clean up the stations data.
+```
+
+
+
+
+
+
+
+
+
+
+Next, go through the columns of the bikes data.
+
+Start Station: 0 NA values
+```{r}
+start_stations<- levels(bikes$start_station)
+end_stations<- levels(bikes$end_station)
+stations_ID<- levels(stations$Station_ID)
+
+setdiff( stations_ID, start_stations)
+# Stations 4110,4118,4164, and 4217 have no data from the starting point. Looks like nobody starts there...
+setdiff( start_stations, stations_ID)
+# Stations 3009 and 3039 are not represented in the station list.  
+ 
+setdiff(stations_ID, end_stations)
+#4164 4217 are not represented in the ending points but on the station list.  
+setdiff(end_stations, stations_ID)
+#Stations 3009 and 3039 are not listed in the station data.  we need to fix this.  
+
+bikes[which(bikes$start_station=="3009"),] # 56 from this location.
+print(bikes[which(bikes$start_station=="3009"),"start_time"], n=56)  #all on 3/26/19 except for 1 on 2/27 and 2/28.  
+
+station_3009<- c(Station_ID="3009",
+                 Station_Name="Windward and Pacific",
+                 Go_live_date="2017-26-03",
+                 Region="Venice",
+                 Status="Inactive")
+
+#Station 3039
+bikes[which(bikes$start_station=="3039"),] # 116 from this location.
+#34.02448	-118.3939 Culver and Washington
+print(bikes[which(bikes$start_station=="3039"),'start_time'], n=116)
+#These are all 3/26 with 2 on 3/17 and 1 on 5/23.  The 5/23 has a different lat/lon and is miscoded station.
+
+station_3009<- c(Station_ID="3039",
+                 Station_Name="Culver and Washington",
+                 Go_live_date="2017-26-03",
+                 Region="Venice",
+                 Status="Inactive")
+```
+
+End Station  All 143 stations represented, 43198 NA
+```{r}
+bikes[which(is.na(bikes$end_station)), ]
+#Looks like we have end_lat and end_lon for a most of these.  there's a few NA.
+#we'll have to fill in the missing values from the lat/lon
+
+```
+
+Trip Route Category - Everything looks good here.
+```{r}
+summary(bikes$trip_route_category)
+```
+
+Start Times: 99 NA, with values ranging from 7/7/2016-12/31/2018
+```{r}
+bikes[which(is.na(bikes$start_time)), ]
+#we've got most of the info on these.  we could try to impute the start time from the end time or calculate an average duration and impute that way.
+```
+
+End Time: 87 NA, 7/7/2016-1/3/2019
+```{r}
+bikes[which(is.na(bikes$end_time)), ]
+# Same as the start times
+```
+
+Start_Lat: 1354 NA
+```{r}
+bikes[which(is.na(bikes$start_lat)), ] #1354 NA
+# looks like the missing values are where start_station = 3000 Virtual Stn.
+bikes[which(is.na(bikes$start_lat) & bikes$start_station=="3000") , ] 
+# All the missing data for start lat are from the virtual stn 3000.
+```
+
+Start Longitude: 1354 NA.  Probably the same as the start latitude, but we should check.
+```{r}
+bikes[which(is.na(bikes$start_lon)), ] #1354 NA
+# looks like the missing values are where start_station = 3000 Virtual Stn.
+bikes[which(is.na(bikes$start_lon) & bikes$start_station=="3000") , ] 
+# All the missing data for start on are from the virtual stn 3000.
+
+#see if the lat and lon missing are the same rows.
+bikes[which(is.na(bikes$start_lon) & bikes$start_station=="3000" &
+              is.na(bikes$start_lat) ) , ]
+# Yep 1354 rows here.  So, the 3000 virtual station doesn't have a location.  We'll have to find out more information about the virtual station.
+```
+
+End Latitude: 9110 NA
+```{r}
+bikes[which(is.na(bikes$end_lat)), ] #9110 NA
+# Looks like we've got a lot of virtual stations, but also a lot of missing end_stations
+#First look at how many virtual end_stations we have
+bikes[which(is.na(bikes$end_lat) & bikes$end_station=="3000") , ] 
+# There's 8624 for the ending virtual station.
+
+#Now lets look at the other missing data
+bikes[which(is.na(bikes$end_lat) & is.na(bikes$end_station)) , ] 
+# There's 486 here. which is all of the missing end_lat.
+# See if any are round trips
+print(bikes[which(is.na(bikes$end_lat) & is.na(bikes$end_station) &
+              bikes$trip_route_category=="One Way") , "start_time"] , n=486)
+# Nope.  All these are one way.  Maybe the bikes didn't get returned.
+#  We can find out the pricing on this and include it in the model.
+
+```
+
+End Longitude: 9110 NA.  Probably similar to the end latitude.
+```{r}
+bikes[which(is.na(bikes$end_lon)), ] #9110 NA
+
+#First look at how many virtual end_stations we have
+bikes[which(is.na(bikes$end_lon) & bikes$end_station=="3000") , ] 
+# 8624 NA here like the latitude
+
+#Now lets look at the other missing data
+bikes[which(is.na(bikes$end_lon) & is.na(bikes$end_station)) , ] 
+#486 like the latitude.  Lets see if they are the same.
+bikes[which(is.na(bikes$end_lon) & is.na(bikes$end_station) &
+              is.na(bikes$end_lat) ) , ] 
+# Yep.  They're one in the same.  so those 486 don't have an end_station or end_latitude and end_longitude.  I bet they were bikes not returned to the station.  
+```
+
+
+```{r}
+print(bikes[which(is.na(bikes$end_lon) & is.na(bikes$end_station) &
+              is.na(bikes$end_lat) ) ,c('start_time', 'end_time') ] , n=486)
+#all dates in 2016.  oct-dec.
+```
+
+
+Plan Duration: 384 NA
+```{r}
+bikes[which(is.na(bikes$plan_duration)), ]
+# Looks like they're all monthly passes.  
+bikes[which(is.na(bikes$plan_duration) & 
+              bikes$passholder_type=="Monthly Pass"), ]
+
+# Yep. All monthly pass.  We can impute 30 for all of these.
+```
+
+
+Take a look at longitude and latitude.  There looks to be some outliers from the data summaries.
+```{r}
+plot(bikes$start_lon, bikes$start_lat, main="Start Location Raw",
+     xlab="Longitude", ylab="Latitude")
+plot(bikes$end_lon, bikes$end_lat, main="End Location Raw",
+     xlab="Longitude", ylab="Latitude")
+
+#looks like there are some 0,0 values in both and maybe a mis-keyed value in the start longitude. Look at the miskeyed value first
+bikes[which(bikes$start_lon>0),] 
+#one instance.  trip_id=28609706 start location=3039, keyed start_lon=118.2383, start_lat=34.02596, end_location=3066
+stations[which(stations$Station_ID=="3039"),]  #no station 3039.  
+stations
+#see if we can make the longitude negative and see which station corresponds
+bikes[which(bikes$end_lon==-118.2383),]
+# nothing there.  lets look at the start_lat
+bikes[which(bikes$end_lat==34.06339),]
+# Ok. Nothing there either. Lets look at the map
+#34.02596, -118.2383
+#This is the channing street location==4118.  looks like the longitude and start station were miscoded.
+#
+
+
+bikes[which(bikes$start_lon==0),] # 32 0 in start_longitude.  All of them are start station 4108.  they're all missing the latitude too.
+bikes[which(bikes$start_station=="4108"),]
+#4108 lat, lon = 34.02589	-118.2382.  we can impute these.
+
+bikes[which(bikes$start_lat==0),] #32 of these.  they're the same as above.
+
+#now look at end_station
+bikes[which(bikes$end_lon==0),] #48 of these.  All station 4108 too.  This station must've had a problem collecting data at some point.
+bikes[which(bikes$end_lat==0),] #48 of these too.
+
+#lets look at the data from this station to see if the 0's are from a certain timeframe
+print(bikes[which( bikes$start_station=="4108" | bikes$end_station=="4108"),c("start_lon", "start_lat", "end_lon", "end_lat", "start_time", "end_time")], n=379)
+#looks like this station had a lot of problems in the first 3 months, then there were some more problems logging it as an end station, because there's NAs there.  The 0 problem got corrected after 9/29.  but NA's start showing up later.
+```
+
+```{r}
+plot(bikes$start_lon[(bikes$start_lon)<0&(bikes$start_lat)>0],
+     bikes$start_lat[(bikes$start_lat)>0&(bikes$start_lon)<0], pch=20
+     , main="Station Locations", xlab="Longitude", ylab="Latitude")
+bikes[which((bikes$start_lon)< -118.3 &(bikes$start_lon)> -118.4),"start_time"]
+stations[which(stations$Station_ID=="3039"),]
+#Station 3039 isn't in the station list.  It's at cluver and washington in venice beach.  
+#bikes[which((bikes$start_lon)< -118.3 &(bikes$start_lon)> -118.4),"start_time"]
+```
+
+
+This code explores the bikes data and shows that the latitudes and longitudes associated with a station aren't unique in every case.  In other words, there are multiple lat/lon associated with some stations.  We'll have to clean this up in the station list.  
+```{r}
+options(digits=10)
+#Loops to detect if a recorded station has a different location.
+station_list = as.character(stations$Station_ID)
+uniques_start_lat<- uniques_start_lon<- rep(NA, length=length(station_list))
+uniques_end_lat<- uniques_end_lon<- rep(NA, length=length(station_list))
+i<-0
+for(stn in station_list){
+  i=i+1
+  #print(stn)
+  a<- bikes[which(bikes$start_station==stn), c("start_lat", "start_lon")]
+  #b<- bikes[which(bikes$start_station==stn), "start_lon"]
+  c<- bikes[which(bikes$end_station==stn), c("end_lat", "end_lon")]
+  #d<- bikes[which(bikes$end_station==stn), "end_lon"]
+  uniques_start_lat[i]=unique(a)
+  #uniques_start_lon[i]=unique(b)
+  uniques_end_lat[i]=unique(c)
+  #uniques_end_lon[i]=unique(d)
+}
+
+
+#uniques_start_lon
+#uniques_end_lat
+#uniques_end_lon
+lis1 <- lapply(uniques_start_lat, lapply, length)
+lis2 <- lapply(uniques_start_lon, lapply, length)
+lis3 <- lapply(uniques_end_lat, lapply, length)
+lis4 <- lapply(uniques_end_lon, lapply, length)
+
+names(lis1) <- lapply(uniques_start_lat, length) 
+names(lis2) <- lapply(uniques_start_lon, length) 
+names(lis3) <- lapply(uniques_end_lat, length) 
+names(lis4) <- lapply(uniques_end_lon, length) 
+
+start_lat<-data.frame(Station=station_list, Unique=names(lis1))
+start_lon<-data.frame(Station=station_list, Unique=names(lis2)) 
+end_lat<-data.frame(Station=station_list, Unique=names(lis3)) 
+end_lon<-data.frame(Station=station_list, Unique=names(lis4)) 
+
+start_lat
+x<-unlist(bikes[which(bikes$start_station=="3005"),"start_lat"])
+length(unlist(x))
+unique(x)
+
+uniques_start_lat
+
+```
+
+
+
+
+
